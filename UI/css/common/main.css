@@ -1,0 +1,10 @@
+@font-face {
+    font-family: GoogleSans-Regular;
+    src: url(/content/font/GoogleSans-Regular.otf);
+}
+
+body{
+    margin: 0;
+    font-size: 13px;
+    font-family: GoogleSans-Regular;
+}
