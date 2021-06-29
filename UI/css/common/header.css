@@ -8,13 +8,13 @@
 }
 
     .header .department-info {
-        padding: 16px;
+        padding-left: 24px;
         font-size: 16px;      
     }
 
         .header .department-info select {
             height: 40px;
-            width: 220px;
+            width: 240px;
             border: none;
             outline: none;
             cursor: pointer;
@@ -37,20 +37,25 @@
             .header .account-info .account-avatar {
                 width: 30px;
                 height: 30px;
+                margin: auto;
                 border: 1px solid #ccc;
                 border-radius: 50%;
                 background-image: url('/content/icon/avatar-default.png');
                 background-size:contain;
+                cursor: pointer;
             }
 
             .header .account-info .account-name {
-                padding: 16px;
+                padding-left: 10px;
+                padding-right: 16px;
+                cursor: pointer;
             }
 
             .header .account-info .account-option {
                 height: 16px;
                 width: 20px;
                 margin: auto;
+                padding-top: 4px;
                 cursor: pointer;
                 background-image: url(/content/icon/option.png);
             }
