@@ -1,0 +1,15 @@
+input{
+    padding: 12px 16px;
+    border-radius: 4px;
+    outline: none;
+    font-size: 12px;
+    border: 1px solid #bbbbbb;
+}
+
+    input::placeholder{
+        font-size: 11px;
+    }
+
+.input-search{
+    padding-left: 40px;
+}

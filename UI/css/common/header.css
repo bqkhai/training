@@ -2,7 +2,7 @@
     position: relative;
     display: flex;
     align-items: center;
-    width: calc(100% - 221px);
+    /* width: calc(100% - 221px); */
     height: 48px;
     border-bottom: 1px solid #bbbbbb;
 }
@@ -14,7 +14,7 @@
 
         .header .department-info select {
             height: 40px;
-            width: 240px;
+            width: 220px;
             border: none;
             outline: none;
             cursor: pointer;
@@ -29,7 +29,7 @@
 
         .header .account-info {
             position: absolute;
-            right: 40px;
+            right: 16px;
             display: flex;
             align-items: center;
         }

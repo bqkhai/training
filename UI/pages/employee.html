@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="/css/common/header.css">
     <link rel="stylesheet" href="/css/common/main.css">
     <link rel="stylesheet" href="/css/common/content.css">
+    <link rel="stylesheet" href="/css/common/icon.css">
+    <link rel="stylesheet" href="/css/common/button.css">
+    <link rel="stylesheet" href="/css/common/toolbar.css">
+    <link rel="stylesheet" href="/css/common/input.css">
+    <link rel="stylesheet" href="/css/common/grid.css">
     <link rel="stylesheet" href="/css/pages/employee.css">
 </head>
 <body>
@@ -58,12 +63,102 @@
         </div>
         <div class="account-info">
             <div class="account-avatar"></div>
-            <div class="account-name">Mai Anh Bảo</div>
+            <div class="account-name">Mai Anh Bảo Abcdefghij</div>
             <div class="account-option"></div>
         </div>
     </div>
     <div class="content">
-        
+        <div class="header-content">
+            <div class="title">Danh sách nhân viên</div>
+            <div class="page-feature">
+                <button class="m-btn m-btn-default">
+                    <div class="btn-icon-add icon-add"></div>
+                    <div class="btn-text">Thêm nhân viên</div>
+                </button>
+            </div>
+        </div>
+        <div class="filter-bar">
+            <div class="filter-left">
+                <input class="icon-search input-search" type="text" 
+                    placeholder="Tìm kiếm theo Mã, Tên hoặc Số điện thoại" style="width: 240px;">
+                <select>
+                    <option>Tất cả phòng ban</option>
+                    <option>Tất cả phòng ban</option>
+                    <option>Tất cả phòng ban</option>
+                    <option>Tất cả phòng ban</option>
+                </select>
+                <select>
+                    <option>Tất cả vị trí</option>
+                    <option>Tất cả vị trí</option>
+                    <option>Tất cả vị trí</option>
+                    <option>Tất cả vị trí</option>
+                </select>
+            </div>
+            <div class="filter-right">
+                <button class="m-btn-refresh m-second-button"></button>
+            </div>
+        </div>
+        <div class="grid grid-employee">
+            <table border="0" width=100% cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Mã nhân viên</th>
+                        <th>Họ và tên</th>
+                        <th>Giới tính</th>
+                        <th>Ngày sinh</th>
+                        <th>Điện thoại</th>
+                        <th>Email</th>
+                        <th>Chức vụ</th>
+                        <th>Phòng ban</th>
+                        <th>Mức lương cơ bản</th>
+                        <th>Tình trạng công việc</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>NV00001</td>
+                        <td>Bùi Quang Khải</td>
+                        <td>Nam</td>
+                        <td>28/07/2000</td>
+                        <td>0988274832</td>
+                        <td>18020671@vnu.edu.vn</td>
+                        <td>Nhân viên</td>
+                        <td>Phát abcd</td>
+                        <td>999999</td>
+                        <td>Đang làm</td>
+                        <!-- <td style="max-width:100px"></td> -->
+                    </tr>
+                    <tr>
+                        <td>NV00001</td>
+                        <td>Bùi Quang Khải</td>
+                        <td>Nam</td>
+                        <td>28/07/2000</td>
+                        <td>0988274832</td>
+                        <td>18020671@vnu.edu.vn</td>
+                        <td>Nhân viên</td>
+                        <td>Phát abcd</td>
+                        <td>999999</td>
+                        <td>Đang làm</td>
+                    </tr>
+                    <tr>
+                        <td>NV00001</td>
+                        <td>Bùi Quang Khải</td>
+                        <td>Nam</td>
+                        <td>28/07/2000</td>
+                        <td>0988274832</td>
+                        <td>18020671@vnu.edu.vn</td>
+                        <td>Nhân viên</td>
+                        <td>Phát abcd</td>
+                        <td>999999</td>
+                        <td>Đang làm</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <div class="pagination">
+
+        </div>
     </div>
 </body>
 </html>
