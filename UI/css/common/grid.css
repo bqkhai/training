@@ -1,13 +1,12 @@
-.grid{
+.grid-header{
     margin: 16px;
-    /* background-color: #808080; */
     overflow: scroll;
-    height: calc(100% - 185px);
+    height: calc(100vh - 185px);
 }
 
 .visible-scrollbar, .invisible-scrollbar, .mostly-customized-scrollbar {
     display: block;
-    overflow: scroll;
+    /* overflow: scroll; */
 }
   
     .invisible-scrollbar::-webkit-scrollbar {
@@ -28,12 +27,20 @@ table th,td{
     border-bottom: 1px solid #bbbbbb;
     padding: 10px 16px;
     text-align: left;
+    /* hiển thị cùng dòng trong td */
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     cursor: pointer;
 }
 
-tr:hover{
+tbody{
+    overflow: scroll;
+    height: calc(100% - 185px);
+}
+
+tr:nth-child(even) {background-color: #f4f4f4;}
+
+tbody tr:hover{
     background-color: #bbbbbb;
 }

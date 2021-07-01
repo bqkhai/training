@@ -8,7 +8,7 @@
 }
 
     .filter-bar .filter-left{
-        
+        cursor: pointer;
     }
 
     .filter-bar .filter-right{
