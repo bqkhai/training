@@ -1,27 +1,34 @@
 .grid-header{
     margin: 16px;
     overflow: scroll;
-    height: calc(100vh - 185px);
+    height: calc(100vh - 235px);
 }
 
-.visible-scrollbar, .invisible-scrollbar, .mostly-customized-scrollbar {
+/* .visible-scrollbar, .invisible-scrollbar, .mostly-customized-scrollbar {
     display: block;
-    /* overflow: scroll; */
-}
+    overflow: scroll;
+} */
   
-    .invisible-scrollbar::-webkit-scrollbar {
-        width: 5px;
-        height: 5px;
-    }
+.invisible-scrollbar::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
     
-    .mostly-customized-scrollbar::-webkit-scrollbar {
-        width: 5px;
-        background-color: #bbbbbb;
-    }
+.mostly-customized-scrollbar::-webkit-scrollbar {
+    width: 5px;
+    background-color: #bbbbbb;
+}
     
-    .mostly-customized-scrollbar::-webkit-scrollbar-thumb {
-        background: #454545;
-    }
+.mostly-customized-scrollbar::-webkit-scrollbar-thumb {
+    background: #454545;
+}
+
+table thead th {
+    position: sticky;
+    position: -webkit-sticky;
+    background-color: #fff;
+    top: 0;
+}
 
 table th,td{
     border-bottom: 1px solid #bbbbbb;
