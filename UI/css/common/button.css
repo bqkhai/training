@@ -40,7 +40,6 @@
     background-image: url(/content/icon/refresh.png);
     background-repeat: no-repeat;
     background-position: center;
-    outline: none;
-    border: none;
+    border: 1px solid #bbbbbb;
     cursor: pointer;
 }

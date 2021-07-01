@@ -34,6 +34,16 @@
             align-items: center;
         }
 
+            .header .account-notification{
+                width: 16px;
+                height: 16px;
+                margin-right: 16px;
+                background-image: url(/content/icon/setting.png);
+                background-repeat: no-repeat;
+                background-size: contain;
+                cursor: pointer;
+            }
+
             .header .account-info .account-avatar {
                 width: 30px;
                 height: 30px;
@@ -46,7 +56,7 @@
             }
 
             .header .account-info .account-name {
-                padding-left: 10px;
+                padding-left: 16px;
                 padding-right: 16px;
                 cursor: pointer;
             }

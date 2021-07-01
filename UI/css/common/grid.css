@@ -1,7 +1,28 @@
 .grid{
     margin: 16px;
     /* background-color: #808080; */
+    overflow: scroll;
+    height: calc(100% - 185px);
 }
+
+.visible-scrollbar, .invisible-scrollbar, .mostly-customized-scrollbar {
+    display: block;
+    overflow: scroll;
+}
+  
+    .invisible-scrollbar::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+    }
+    
+    .mostly-customized-scrollbar::-webkit-scrollbar {
+        width: 5px;
+        background-color: #bbbbbb;
+    }
+    
+    .mostly-customized-scrollbar::-webkit-scrollbar-thumb {
+        background: #454545;
+    }
 
 table th,td{
     border-bottom: 1px solid #bbbbbb;
@@ -10,4 +31,9 @@ table th,td{
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    cursor: pointer;
+}
+
+tr:hover{
+    background-color: #bbbbbb;
 }
