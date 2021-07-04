@@ -12,6 +12,7 @@
 .content .header-content{
     display: flex;
     padding: 16px;
+    padding-bottom: 8px;
     background-color: #ffffff;
 }
     .content .header-content .title{

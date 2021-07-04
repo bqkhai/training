@@ -9,29 +9,29 @@
 
     .navbar .logo-site, .navbar .logo-box{
         display: flex;
-        width: 220px;
-        height: 48px;
+        width: 204px;
+        height: 36px;
     }
 
         .navbar .logo-box{
             position: absolute;
             top: 12px;
             left: 16px;
-            bottom: 12px;
+            cursor: pointer;
         }
 
             .navbar .logo-box .toggle-icon{
-                width: 30px;
-                height: 30px;
+                width: 24px;
+                height: 24px;
                 background-image: url(/content/img/toggle.png);
                 background-size: contain;
                 background-repeat: no-repeat;
             }
 
-            .navbar .logo-box .amis-logo{
+            .navbar .logo-box .cukcuk-logo{
                 width: 100%;
-                height: 30px;
-                margin-left: 12px;
+                height: 24px;
+                margin-left: 10px;
                 background-image: url(/content/img/cukcuk-logo.png);
                 background-size: contain;
                 background-repeat: no-repeat;
@@ -39,20 +39,27 @@
 
     .navbar .navbar-content{
         width: 100%;
+        margin-top: 12px;
     }
 
         .navbar .navbar-content .nav-item{
             display: flex;
             padding-left: 16px;
             height: 44px;
-            /* line-height: 44px; */
+            line-height: 44px;
             cursor: pointer;
         }
 
-            .navbar .navbar-content .nav-item:hover{
-                background-color: #e5e5e5;
-                color: #000000;
-            }
+        .navbar .navbar-content .nav-item:hover{
+            background-color: #e5e5e5;
+            color: #000000;
+        }
+
+        .navbar .navbar-content .nav-item:focus {
+            font-size: 13px;
+            background-color: #019160;
+            color: #019160;
+        }
         
             .nav-item .nav-item-icon{
                 width: 20px;
@@ -60,7 +67,7 @@
                 /* border: 1px solid;
                 margin: auto 0; */
                 align-self: center;
-                margin-right: 10px;
+                margin-right: 8px;
                 background-size: contain;
             }
 

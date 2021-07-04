@@ -1,4 +1,4 @@
-.m-btn{
+.add-btn{
     display: flex;
     align-items: center;
     background-color: #019160;
@@ -13,21 +13,26 @@
     cursor: pointer;
 }
 
-    .m-btn:hover{
+    .add-btn:hover{
         background-color: #2fbe8e;
     }
 
-    .m-btn .btn-text{
+    .add-btn .btn-add-text{
         margin-left: 8px;
         margin-right: 16px;
     }
 
-    .m-btn .btn-icon-add{
+    .add-btn .btn-icon-add{
         background-position: center;
     }
 
+.btn-default{
+    position: absolute;
+    right: 16px;
+}
+
 .m-second-button{
-    /* background-color: #bbbbbb; */
+    background-color: #ffffff;
     border-radius: 4px;
     height: 40px;
     color: #000000;
@@ -42,4 +47,9 @@
     background-position: center;
     border: 1px solid #bbbbbb;
     cursor: pointer;
+}
+
+.m-btn-refresh:hover {
+    cursor: pointer;
+    background-color: #e9ebee;
 }

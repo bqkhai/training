@@ -1,0 +1,212 @@
+.exit-form{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: #000000;
+    opacity: 0.5;
+    display: none;
+}
+
+.form-add-employee{
+    position: absolute;
+    height: calc(100vh - 56px);
+    width: 900px;
+    top: 28px;
+    left: calc((100% - 900px) / 2);
+    display: none;
+    border: 1px solid #bbbbbb;
+    border-radius: 4px;
+    background-color: #ffffff;
+    overflow: auto;
+}
+
+    .form-add-employee .header-form{
+        margin: 16px;
+        display: flex;
+    }
+
+        .form-add-employee .header-form .header-form-text{
+            margin: 16px 0px 0px 16px;
+            width: 400px;
+            height: 40px;
+            font-size: 20px;
+        }
+
+        .form-add-employee .header-form .btn-close{
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            height: 24px;
+            width: 24px;
+            background-color: #ffffff;
+            border: none;
+            outline: none;
+            opacity: 0.5;
+        }
+
+        .form-add-employee .header-form .close-btn{
+            background-image: url('/content/icon/x.svg');
+        }
+
+        .form-add-employee .header-form .btn-close button{
+            height: 24px;
+            width: 24px;
+            background-color: #ffffff;
+            border: none;
+            outline: none;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .form-add-employee .header-form .btn-close button:hover{
+            background-color: #bbbbbb;
+        }
+
+    .content-form{
+        display: flex;
+        width: 100%;
+        height: calc(100% - 40px - 24px - 60px);
+    }
+
+        .content-form .left-form{
+            position: absolute;
+            left: 16px;
+            width: 200px;
+            height: calc(100% - 40px - 24px - 60px);
+        }
+
+            .content-form .left-form .employee-avt{
+                margin: 8px 16px;
+                height: 175px;
+                width: 175px;
+                border: 1px solid #bbbbbb;
+                border-radius: 50%;
+                background-image: url('/content/img/default-avatar.jpg');
+                background-size: contain;
+                background-repeat: no-repeat;
+                cursor: pointer;
+            }
+
+            .content-form .left-form .desc-avt{
+                text-align: center;
+                margin: 16px;
+            }
+
+        .content-form .full-form{
+            position: absolute;
+            left: 230px;
+            width: calc(100% - 230px);
+            height: calc(100% - 40px - 24px - 80px);
+            display: block;
+        }
+        
+        .content-form .full-form .item-head{
+            height: 22px;
+            padding: 8px 4px;
+            align-items: center;
+        }
+
+            .content-form .full-form .item-head .hidden-bar{
+                padding-bottom: 4px;
+            }
+
+            .content-form .full-form .item-head .hidden-bar{
+                width: 70px;
+                height: 0px;
+                border-bottom: 5px solid #019160;
+            }
+
+        .content-form .full-form .item-form{
+            height: 79px;
+            padding: 2px 3px;
+            display: flex;
+        }
+
+            .content-form .full-form .item-form .item{
+                width: calc(100% - 22px);
+            }
+
+            .content-form .full-form .item-form .item .label{
+                display: flex;
+                padding-bottom: 4px;
+                margin-top: 4px;
+            }
+                .content-form .full-form .item-form .red-text{
+                    color: red;
+                }
+            
+                .content-form .full-form .item-form .item-input, .select-form{
+                    height: 38px;
+                    width: calc(100% - 40px);
+                    border-radius: 4px;
+                    border: 1px solid #bbbbbb;
+                    outline: none;
+                    padding: 0px 4px 0px 16px;
+                    font-family: "GoogleSans-Regular";
+                    font-size: 13px;
+                }
+
+                .content-form .full-form .item-form .select-form{
+                    height: 40px;
+                    width: calc(100% - 17px);
+                    border-radius: 4px;
+                    border: 1px solid #bbbbbb;
+                    outline: none;
+                    padding: 0px 4px 0px 16px;
+                    font-family: "GoogleSans-Regular";
+                    font-weight: bolder;
+                    font-size: 13px;
+                }
+
+                .content-form .full-form .item-form .item-input:focus{
+                    border: 1px solid #019160;
+                }
+
+    .form-add-employee .footer-form{
+        position: absolute;
+        top: calc(900px - 35px);
+        height: 56px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        background-color: #e9ebee;
+    }
+
+        .form-add-employee .footer-form .btn-cancel-box{
+            position: absolute;
+            right: 106px;
+            height: 40px;
+            padding: 0px 24px;
+        }
+
+            .form-add-employee .footer-form .btn-cancel-box .btn-cancel{
+                height: 40px;
+                padding: 0px 36px;
+                border: none;
+                outline: none;
+                background-color: #e9ebee;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+            .form-add-employee .footer-form .btn-cancel-box .btn-cancel:hover{
+                background-color: #bbbbbb;
+            }
+
+        .form-add-employee .footer-form .btn-save-box{
+            position: absolute;
+            right: 12px;
+            height: 40px;
+            padding: 0px 24px;
+        }
+
+            .form-add-employee .footer-form .btn-save-box .icon-save{
+                background-image: url(/content/icon/add.png);
+                height: 20px;
+                width: 20px;
+                background-size: contain;
+                background-repeat: no-repeat;
+                margin-right: 8px;
+            }

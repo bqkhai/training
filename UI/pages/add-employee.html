@@ -1,174 +1,200 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee</title>
-    <link rel="stylesheet" href="/css/common/navbar.css">
-    <link rel="stylesheet" href="/css/common/header.css">
-    <link rel="stylesheet" href="/css/common/main.css">
-    <link rel="stylesheet" href="/css/common/content.css">
-    <link rel="stylesheet" href="/css/common/icon.css">
-    <link rel="stylesheet" href="/css/common/button.css">
-    <link rel="stylesheet" href="/css/common/toolbar.css">
-    <link rel="stylesheet" href="/css/common/input.css">
-    <link rel="stylesheet" href="/css/common/table.css">
-    <link rel="stylesheet" href="/css/common/pagination.css">
-    <link rel="stylesheet" href="/css/form/dialog.css">
+    <title>Add Employee</title>
     <link rel="stylesheet" href="/css/form/add-form.css">
-    <link rel="stylesheet" href="/css/pages/employee.css">
+    <link rel="stylesheet" href="/css/common/button.css">
+    <link rel="stylesheet" href="/css/common/dropdown.css">
+    <link rel="stylesheet" href="/css/common/input.css">
+    <link rel="stylesheet" href="/css/common/main.css">
 </head>
-<body>
-    <div class="navbar">
-        <div class="logo-site">
-            <div class="logo-box">
-                <div class="toggle-icon"></div>
-                <div class="cukcuk-logo"></div>
+<body style="background-color: #e9ebee;">
+    <!-- <div class="form-add-employee" style="display: block;">
+        <div class="header-form">
+            <div class="header-form-text">THÔNG TIN NHÂN VIÊN</div>
+            <div class="btn-close">
+                <button onclick="" class="close-btn" id="close-btn"></button>
             </div>
         </div>
-        <div class="navbar-content">
-            <div class="nav-item">
-                <div class="nav-item-icon nav-item-icon-dashboard"></div>
-                <div class="nav-item-text">Tổng quan</div>
-            </div>
-            <div class="nav-item">
-                <div class="nav-item-icon nav-item-icon-report"></div>
-                <div class="nav-item-text">Báo cáo</div>
-            </div>
-            <div class="nav-item">
-                <div class="nav-item-icon nav-item-icon-dashboard"></div>
-                <div class="nav-item-text">Mua hàng</div>
-            </div>
-            <div class="nav-item">
-                <div class="nav-item-icon nav-item-icon-employee"></div>
-                <div class="nav-item-text">Danh mục nhân viên</div>
-            </div>
-            <div class="nav-item">
-                <div class="nav-item-icon nav-item-icon-employee"></div>
-                <div class="nav-item-text">Danh mục nhân viên</div>
-            </div>
-            <div class="nav-item">
-                <div class="nav-item-icon nav-item-icon-setting"></div>
-                <div class="nav-item-text">Thiết lập hệ thống</div>
-            </div>
-        </div>
-    </div>
-    <div class="header">
-        <div class="department-info">
-            <!-- <div class="misa-branch-logo">
-                <div class="text">MB</div>
-            </div> -->
-            <select>
-                <option>Nhà hàng Biển Đông</option>
-                <option>Misa</option>
-                <option>Misa</option>
-                <option>Misa</option>
-            </select>
 
+        <div class="content-form">
+            <div class="left-form">
+                <div class="employee-avt"></div>
+                <div class="desc-avt">
+                    (Vui lòng chọn ảnh có định dạng<br>.jpg, .jpeg, .png, .gif)
+                </div>
+            </div>
+            <div class="full-form">
+                <div class="item-head">
+                    <div class="item-head-text">A.THÔNG TIN CHUNG</div>
+                    <div class="hidden-bar"></div>
+                </div>
+                <div class="item-form">
+                    <div class="item">                    
+                        <div class="label">
+                            <div>Mã số nhân viên (</div>
+                            <div class="red-text">*</div>
+                            <div>)</div>
+                        </div>
+                        <div>
+                            <input type="text" class="item-input">
+                        </div>
+                    </div>
+                    <div class="item">           
+                        <div class="label">
+                            <div>Họ và tên (</div>
+                            <div class="red-text">*</div>
+                            <div>)</div>
+                        </div>
+                        <div>
+                            <input type="text" class="item-input">
+                        </div>
+                    </div>
+                </div>
+                <div class="item-form">
+                    <div class="item">
+                        <div class="label">Ngày sinh</div>
+                        <div>
+                            <input type="date" class="item-input">
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="label">Giới tính</div>
+                        <div class="select-in-form">
+                            <select>
+                                <option>Nam</option>
+                                <option>Nữ</option>
+                                <option>Khác</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-form">
+                    <div class="item">
+                        <div class="label">
+                            <div>Số CMTND/ Căn cước (</div>
+                            <div class="red-text">*</div>
+                            <div>)</div>
+                        </div>
+                        <div>
+                            <input type="text" class="item-input">
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="label">Ngày cấp</div>
+                        <div>
+                            <input type="date" class="item-input">
+                        </div>
+                    </div>
+                </div>
+                <div class="item-form">
+                    <div class="item">
+                        <div class="label">Nơi cấp</div>
+                        <div>
+                            <input type="text" class="item-input">
+                        </div>
+                    </div>
+                    <div class="item">
+                    </div>
+                </div>
+                <div class="item-form">
+                    <div class="item">
+                        <div class="label">
+                            <div>Email (</div>
+                            <div class="red-text">*</div>
+                            <div>)</div>
+                        </div>
+                        <div>
+                            <input type="text" class="item-input">
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="label">
+                            <div>Số điện thoại (</div>
+                            <div class="red-text">*</div>
+                            <div>)</div>
+                        </div>
+                        <div>
+                            <input type="text" class="item-input">
+                        </div>
+                    </div>
+                </div>
+                <div class="item-head">
+                    <div>B.THÔNG TIN CÔNG VIỆC</div>
+                    <div class="hidden-bar"></div>
+                </div>
+                <div class="item-form">
+                    <div class="item">
+                        <div class="label">Vị trí</div>
+                        <div class="select-in-form">
+                            <select>
+                                <option>Tổng giám đốc</option>
+                                <option>Phó tổng giám đốc</option>
+                                <option>Giám đốc</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="label">Phòng ban</div>
+                        <div class="select-in-form">
+                            <select>
+                                <option>Phòng nhân sự</option>
+                                <option>Phòng sản xuất</option>
+                                <option>Khác</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-form">
+                    <div class="item">
+                        <div class="label">Mã số thuế cá nhân</div>
+                        <div>
+                            <input type="text" class="item-input">
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="label">Mức lương cơ bản</div>
+                        <div>
+                            <input type="text" class="item-input">
+                        </div>
+                    </div>
+                </div>
+                <div class="item-form">
+                    <div class="item">
+                        <div class="label">Ngày gia nhập công ty</div>
+                        <div>
+                            <input type="date" class="item-input">
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="label">Tình trạng công việc</div>
+                        <div class="select-in-form">
+                            <select>
+                                <option>Đang làm việc</option>
+                                <option>Đã nghỉ việc</option>
+                                <option>Khác</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="account-info">
-            <!-- <div class="account-notification"></div> -->
-            <div class="account-avatar"></div>
-            <div class="account-name">Bùi Quang Khải</div>
-            <div class="account-option"></div>
-        </div>
-    </div>
-    <div class="content">
-        <div class="header-content">
-            <div class="title">Danh sách nhân viên</div>
-            <!-- <div class="page-feature">
-                <button class="m-btn m-btn-default">
-                    <div class="btn-icon-add icon-add"></div>
-                    <div class="btn-text">Thêm nhân viên</div>
+
+        <div class="footer-form">
+            <div class="btn-cancel-box">
+                <button class="btn-cancel">Hủy</button>
+            </div>
+            <div class="btn-save-box">
+                <button class="add-btn btn-save-box">
+                    <div class="icon-save"></div>
+                    <div class="add-employee-text">Lưu</div>
                 </button>
-            </div> -->
-            <div class="add-btn-header">
-                <button class="add-btn btn-default" onclick="openform()">
-                    <div class="btn-icon-add icon-add"></div>
-                    <div class="btn-add-text">Thêm nhân viên</div>
-                </button>
             </div>
         </div>
-        <div class="filter-bar">
-            <div class="filter-left">
-                <div class="search-input">
-                    <input class="icon-search input-search" type="text"
-                    placeholder="Tìm kiếm theo Mã, Tên hoặc Số điện thoại"
-                    onblur="this.placeholder='Tìm kiếm theo Mã, Tên hoặc Số điện thoại'" 
-                    onfocus="this.placeholder=''"style="width: 240px;">
-                </div>
-                <div class="filter-input">
-                    <select>
-                        <option>Tất cả phòng ban</option>
-                        <option>Tất cả phòng ban</option>
-                        <option>Tất cả phòng ban</option>
-                        <option>Tất cả phòng ban</option>
-                    </select>
-                </div>
-                <div class="filter-input">
-                    <select>
-                        <option>Tất cả vị trí</option>
-                        <option>Tất cả vị trí</option>
-                        <option>Tất cả vị trí</option>
-                        <option>Tất cả vị trí</option>
-                    </select>
-                </div>
-            </div>
-            <div class="filter-right">
-                <button id="my-btn" class="m-btn-refresh m-second-button"></button>
-            </div>
-        </div>
-        <div class="grid-header visible-scrollbar invisible-scrollbar mostly-customized-scrollbar">
-            <table border="0" width=100% cellspacing="0">
-                <thead>
-                    <tr>
-                        <th>Mã nhân viên</th>
-                        <th>Họ và tên</th>
-                        <th>Giới tính</th>
-                        <th>Ngày sinh</th>
-                        <th>Điện thoại</th>
-                        <th>Email</th>
-                        <th>Chức vụ</th>
-                        <th>Phòng ban</th>
-                        <th>Mức lương cơ bản</th>
-                        <th>Tình trạng công việc</th>
-                    </tr>
-                </thead>
-                <tbody class="grid-list">
-                    <tr>
-                        <td>NV00001</td>
-                        <td>Bùi Quang Khải</td>
-                        <td>Nam</td>
-                        <td>28/07/2000</td>
-                        <td>0988274832</td>
-                        <td>18020671@vnu.edu.vn</td>
-                        <td>Nhân viên</td>
-                        <td>Phát abcd</td>
-                        <td>999999</td>
-                        <td style="max-width: 100px;">Đang làm asdfnkfkjsahfas fasjdfhjaf ajfsadfkafs asfhasjfdasd</td>
-                        <!-- <td style="max-width:100px"></td> -->
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="footer">
-            <div>
-                Hiển thị 1-10/1000 khách hàng
-            </div>
-            <div class="pagination">
-                <div class="pagination-item first-page"></div>
-                <div class="pagination-item prev-page"></div>
-                <div class="pagination-item active">1</div>
-                <div class="pagination-item">2</div>
-                <div class="pagination-item">3</div>
-                <div class="pagination-item">4</div>
-                <div class="pagination-item next-page"></div>
-                <div class="pagination-item last-page"></div>
-            </div>
-            <div>10 khách hàng/trang</div>
-        </div>
-    </div>
+    </div> -->
 
     <div class="exit-form" id="exit-form"></div>
 
@@ -355,23 +381,5 @@
             </div>
         </div>
     </div>
-
-    <script>
-        function openform() {
-            document.getElementById("form-add-employee").style.display = "block";
-            document.getElementById("exit-form").style.display = "block";
-        }
-
-        function exitform() {
-            document.getElementById("form-add-employee").style.display = "none";
-            document.getElementById("exit-form").style.display = "none";
-        }
-    </script>
-
-    <script src="/lib/jquery-3.6.0.min.js"></script>
-    <script src="/js/page/employee.js"></script>
-    <script src="/js/common/common.js"></script>
-    <script src="/js/common/dropdown.js"></script>
-    <!-- <script src="/js/common/addform.js"></script> -->
 </body>
 </html>

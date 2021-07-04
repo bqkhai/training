@@ -13,3 +13,24 @@ input{
 .input-search{
     padding-left: 40px;
 }
+
+.filter-input select{
+    border-radius: 4px;
+    border: 1px solid #bbb;
+    outline: none;
+    height: 40px;
+    padding: 0;
+    padding-left: 16px;
+    display: inline-block;
+}
+
+input:focus, select:focus {
+    border: 1px solid #019160;
+}
+
+.select-in-form select{
+    width: calc(100% - 20px);
+    height: 40px;
+    border: 1px solid #bbbbbb;
+    border-radius: 4px;
+}
