@@ -1,9 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee List</title>
+    <title>Employee Test</title>
     <link rel="stylesheet" href="/css/common/navbar.css">
     <link rel="stylesheet" href="/css/common/header.css">
     <link rel="stylesheet" href="/css/common/main.css">
@@ -17,6 +18,7 @@
     <link rel="stylesheet" href="/css/form/dialog.css">
     <link rel="stylesheet" href="/css/pages/employee.css">
 </head>
+
 <body>
     <div class="navbar">
         <div class="logo-site">
@@ -86,9 +88,9 @@
             <div class="filter-left">
                 <div class="search-input">
                     <input class="icon-search input-search" type="text"
-                    placeholder="Tìm kiếm theo Mã, Tên hoặc Số điện thoại"
-                    onblur="this.placeholder='Tìm kiếm theo Mã, Tên hoặc Số điện thoại'" 
-                    onfocus="this.placeholder=''"style="width: 240px;">
+                        placeholder="Tìm kiếm theo Mã, Tên hoặc Số điện thoại"
+                        onblur="this.placeholder='Tìm kiếm theo Mã, Tên hoặc Số điện thoại'"
+                        onfocus="this.placeholder=''" style="width: 240px;">
                 </div>
                 <div class="filter-input">
                     <select>
@@ -111,7 +113,7 @@
                 <button id="my-btn" class="m-btn-refresh m-second-button"></button>
             </div>
         </div>
-        <div class="grid-header">
+        <div class="grid-header visible-scrollbar invisible-scrollbar mostly-customized-scrollbar">
             <table id="tbListData" border="0" width=100% cellspacing="0">
                 <thead>
                     <tr>
@@ -187,7 +189,7 @@
                         <div class="group-title-underlined"></div>
                         <div class="form-row-item">
                             <div class="m-row">
-                                <div class="form-item">
+                                <div class="form-item" id="form-auto-focus" autofocus>
                                     <div class="m-label">Mã nhân viên (<span class="required">*</span>)</div>
                                     <div>
                                         <input class="m-input" type="text" />
@@ -230,7 +232,7 @@
                                 <div class="form-item">
                                     <div class="m-label">Ngày cấp</div>
                                     <div>
-                                        <input class="m-input" type="date"/>
+                                        <input class="m-input" type="date" />
                                     </div>
                                 </div>
 
@@ -342,17 +344,19 @@
     </div>
 
     <script>
-        function openform(){
+        function openform() {
             var modal = document.getElementById("m-dialog dialog-detail");
-            modal.style.display="block";
+            modal.style.display = "block";
+            document.getElementById("form-auto-focus").focus();
         }
-        function closeform(){
+        function closeform() {
             var modal = document.getElementById("m-dialog dialog-detail");
-            modal.style.display="none";
+            modal.style.display = "none";
         }
     </script>
-    
+
     <script src="/lib/jquery-3.6.0.min.js"></script>
     <script src="/js/page/employee.js"></script>
 </body>
+
 </html>

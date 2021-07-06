@@ -1,0 +1,219 @@
+.m-dialog{
+    font-size:13px;
+}
+
+ .m-dialog .dialog-modal{
+    opacity:0.5;
+    position:fixed;
+    width:100%;
+    height:100vh;
+    background-color:#000000;
+    z-index:10;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+}
+
+    .m-dialog .dialog-content {
+        position: fixed;
+        width: 820px;
+        height: 860px;
+        background-color: #ffffff;
+        z-index: 10;
+        top: calc(50% - 430px);
+        left: calc(50% - 410px);
+        border-radius:5px;
+ 
+    }
+    .m-dialog .dialog-header {
+        width: 100%;
+        display: flex;
+        margin-bottom: 24px;
+        padding: 24px 24px 0 24px;
+        box-sizing: border-box;
+    }
+
+        .m-dialog .dialog-header .dialog-header-title {
+            padding-right: 24px;
+            width: 100%;
+            font-size: 15px;
+            color: #000000;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .m-dialog .dialog-header .dialog-header-close {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+        }
+
+        .m-dialog .dialog-header .dialog-header-close button:hover {
+            background-color: #ccc;
+        }
+
+        .m-dialog .dialog-header .dialog-header-close button {
+            width: 30px;
+            height: 30px;
+            border-radius: 4px;
+            background-color: #ffffff;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            background-image: url("/content/icon/x.svg");
+            background-repeat: no-repeat;
+            background-size: 16px;
+            background-position: center;
+        }
+
+    .m-dialog .dialog-body {
+        width: 100%;
+        display: flex;
+        height: calc(100% - 61px - 61px - 50px);
+        padding: 0 24px;
+        box-sizing:border-box;
+    }
+        .m-dialog .dialog-body .dialog-img {
+            width:160px;
+            height:100%;
+        }
+
+        .required{
+            color:red;
+        }
+         
+        .img-field {
+            width: 160px;
+            height: 160px;
+            background-image: url("/content/img/default-avatar.jpg");
+            background-repeat: no-repeat;
+            background-size: 160px;
+            background-position: center;
+            border-radius: 50%;
+            border: 2px solid #bbbbbb;
+            cursor: pointer;
+        }
+
+        .img-field svg {
+            width: 100%;
+            height: 100%;
+            fill: #bbbbbb;
+        }
+        
+        .img-required {
+            text-align: center;
+        }
+
+        .m-dialog .dialog-body .dialog-form {
+            width: calc(100% - 160px);
+            height: 100%;
+            margin-left: 24px;
+        }
+
+    .m-dialog .dialog-footer {
+        width: 100%;
+        margin-top: 45px;
+        border-radius: 4px;
+        display: flex;
+        height: 60px;
+        background-color: #e9ebee;       
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+        .m-dialog .dialog-footer .btn-cancel-box{
+            position: absolute;
+            right: 106px;
+            height: 40px;
+            padding: 0px 24px;
+        }
+
+        .m-dialog .dialog-footer .btn-cancel-box .btn-cancel{
+            height: 40px;
+            padding: 0px 36px;
+            border: none;
+            outline: none;
+            background-color: #e9ebee;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .m-dialog .dialog-footer .btn-cancel-box .btn-cancel:hover{
+            background-color: #bbbbbb;
+        }
+
+        .m-dialog .dialog-footer .btn-save-box{
+            position: absolute;
+            right: 12px;
+            height: 40px;
+            padding: 0px 24px;
+        }
+
+        .m-dialog .dialog-footer .btn-save-box .icon-save{
+            background-image: url(/content/icon/file-plus.svg);
+            height: 20px;
+            width: 20px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            margin-right: 8px;
+        }
+ 
+.group-title-underlined {
+    background-color: #019160;
+    height: 3px;
+    width: 70px;
+    margin:8px 0;
+}
+
+.form-group-below { 
+    margin-top:24px;
+}
+ 
+.dialog-body-right .form-group:first-child {
+    margin-top: 0;
+}
+
+.form-group .form-row-item .m-row:first-child {
+    margin-top: 0;
+}
+
+.m-row{
+    margin-top:16px;
+    display:flex;
+    justify-content:space-between;
+}
+
+.form-item{
+    width:48%;
+}
+
+.m-label{
+    margin-bottom:4px;
+}
+
+.m-input{
+    width:100%;
+    height: 40px;
+    box-sizing:border-box;
+}
+
+.form-select {
+    padding: 0 16px;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid #bbbbbb;
+    height: 40px;
+    width:100%;
+    box-sizing: border-box;
+    font-size: 13px;
+}
+ 
+.select {
+    padding: 0 16px;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid #bbbbbb;
+    height: 30px;
+    box-sizing: border-box;
+}

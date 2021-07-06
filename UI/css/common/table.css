@@ -22,7 +22,8 @@
 
 table thead th {
     position: sticky;
-    background-color: #ffffff;
+    position: -webkit-sticky;
+    background-color: #fff;
     top: 0;
 }
 

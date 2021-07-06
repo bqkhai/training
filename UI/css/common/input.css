@@ -22,6 +22,8 @@ input{
     padding: 0;
     padding-left: 16px;
     display: inline-block;
+    font-family: "GoogleSans-Regular";
+    font-size: 13px;
 }
 
 input:focus, select:focus {
@@ -33,4 +35,6 @@ input:focus, select:focus {
     height: 40px;
     border: 1px solid #bbbbbb;
     border-radius: 4px;
+    font-family: "GoogleSans-Regular";
+    font-size: 13px;
 }
