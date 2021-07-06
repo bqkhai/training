@@ -4,7 +4,6 @@ $(document).ready(function () {
 })
 
 /**
- * 
  * Khởi tạo sự kiện
  * Author: BQKhai (05/07/2021)
  */
@@ -30,6 +29,8 @@ function initEvents() {
 
     // Sự kiện click button refresh
     $("#my-btn").click(function (){
+        // Làm trống bảng
+        $("#tbListData tbody").empty();
         me.loadData();
     })
 }
@@ -57,16 +58,18 @@ function loadData() {
             let fullName = item.FullName;
             let genderName = item.GenderName;
             if (genderName === null) {
-                genderName = 'Không xác định'
+                genderName = 'Không xác định';
             }
             let dateOfBirth = item.DateOfBirth;
             dateOfBirth = formatDate(dateOfBirth);
             let phone = item.PhoneNumber;
+            if (phone === null) {
+                phone = 'Không xác định';
+            }
             let mail = item.Email;
             let address = item.IdentityPlace;
             let departmentName = item.DepartmentName;
-            let salary = item.Salary;
-            salary = formatSalary(salary);
+            let salary = formatSalary(item.Salary);
             let workStatus = item.WorkStatus;
             if (workStatus === null) {
                 workStatus = 'Không xác định'
@@ -91,10 +94,6 @@ function loadData() {
     }).fail(function (response) {
         alert("Có lỗi xảy ra!");
     })
-
-    //2. Xử lý dữ liệu:
-    
-    //3. Hiển thị dữ liệu;
 }
 
 /**
@@ -124,5 +123,13 @@ function formatDate(date){
  * Created by bqkhai (6/7/2021)
  */
 function formatSalary(money){
-    return money.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+    const numberFormat = new Intl.NumberFormat('vi-VN');
+    if (money === null) {
+        money = 'Không xác định';
+    }
+    money = numberFormat.format(money);
+    if (money === "NaN") {
+        money = 'Không xác định';
+    }
+    return money;
 }

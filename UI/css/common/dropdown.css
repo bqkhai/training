@@ -6,32 +6,30 @@
     height: 40px;
     display: flex;
     cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid #bbbbbb;
 }
 
-    .dropdown .filter-input .text-input{
-        height: 40px;
+    .dropdown .dropdown-button{
+        width: 40px;
+        height: 100%;
+        border-left: 1px solid #bbbbbb;
         box-sizing: border-box;
-        border: 1px solid #bbbbbb;
-        border-radius: 4px 0px 0px 4px;
-        border-right: none;
+        outline: none;
+        padding: 12px;
+        background-image: url(/content/icon/chevron-down.svg);
+        background-repeat: no-repeat;
+        cursor: pointer;
+        background-position: center;
+    }
+
+    .dropdown .dropdown-button:hover{
+        background-color: #bbbbbb;
+    }
+
+    .dropdown .dropdown-filter-input{
+        border: none;
+        height: 100%;
+        width: calc(100% - 40px);
         outline: none;
     }
-
-        .dropdown .filter-input .text-input:focus{
-            border: 1px solid #019160;
-        }
-
-    .dropdown .icon-dropdown-list{
-        height: 40px;
-        width: 50px;
-        border: 1px solid #bbbbbb;
-        border-radius: 0px 4px 4px 0px;
-        box-sizing: border-box;
-        background-image: url(/content/icon/chevron-down.svg);
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-
-        .dropdown .dropdown-list:focus{
-            border: 1px solid #019160;
-        }
