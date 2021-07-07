@@ -1,0 +1,29 @@
+.filter-bar{
+    /* width: 100%; */
+    display: flex;
+    margin-left: 16px;
+    margin-right: 16px;
+    height: 40px;
+    /* background-color: #ccc; */
+}
+
+    .filter-bar .filter-left{
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+    }
+
+        .filter-bar .filter-left select{
+            width: 190px;
+        }
+     
+        .filter-bar .filter-left .filter-input {
+            display: flex;
+            margin-left: 10px;
+        }
+
+    .filter-bar .filter-right{
+        position: absolute;
+        right: 16px;
+        height: 40px;
+    }

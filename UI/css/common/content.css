@@ -1,0 +1,42 @@
+.content{
+    float: left;
+    position: absolute;
+    top: 49px;
+    left: 221px;
+    width: calc(100% - 221px);
+    height: calc(100vh - 49px);
+    /* background-color: #e9ebee; */
+}
+
+/* page-title */
+.content .header-content{
+    display: flex;
+    padding: 16px;
+    padding-bottom: 8px;
+    background-color: #ffffff;
+}
+    .content .header-content .title{
+        font-size: 20px;
+        font-weight: bold;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    .content .header-content .page-feature{
+        position: absolute;
+        right: 16px;
+        background-image: url(/content/icon/add.png);
+    }
+
+/* footer */
+.content .footer {
+    position: absolute;
+    height: 56px;
+    bottom: 0;
+    left: 16px;
+    right: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 8px;
+}
