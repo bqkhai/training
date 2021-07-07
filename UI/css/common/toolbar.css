@@ -4,7 +4,8 @@
     margin-left: 16px;
     margin-right: 16px;
     height: 40px;
-    /* background-color: #ccc; */
+    background-color: #ffffff;
+    align-items: center;
 }
 
     .filter-bar .filter-left{

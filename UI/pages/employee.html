@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,6 +19,7 @@
     <link rel="stylesheet" href="/css/form/dialog.css">
     <link rel="stylesheet" href="/css/pages/employee.css">
 </head>
+
 <body>
     <div class="navbar">
         <div class="logo-site">
@@ -87,17 +89,27 @@
             <div class="filter-left">
                 <div class="search-input">
                     <input class="icon-search input-search" type="text"
-                    placeholder="Tìm kiếm theo Mã, Tên hoặc Số điện thoại"
-                    onblur="this.placeholder='Tìm kiếm theo Mã, Tên hoặc Số điện thoại'" 
-                    onfocus="this.placeholder=''"style="width: 240px;">
+                        placeholder="Tìm kiếm theo Mã, Tên hoặc Số điện thoại"
+                        onblur="this.placeholder='Tìm kiếm theo Mã, Tên hoặc Số điện thoại'"
+                        onfocus="this.placeholder=''" style="width: 240px;">
                 </div>
                 <div class="filter-input">
-                    <select>
-                        <option>Tất cả phòng ban</option>
-                        <option>Tất cả phòng ban</option>
-                        <option>Tất cả phòng ban</option>
-                        <option>Tất cả phòng ban</option>
-                    </select>
+                    <input type="text" class="dropdown-input-text" />
+                    <div class="dropdown-button-select" hide=true></div>
+                    <div class="dropdown-list-box" style="display:none;">
+                        <div class="item-list" value="0" row>
+                            <div class="icon-check"></div>
+                            <div class="item-dropdown-text">Tất cả phòng ban</div>
+                        </div>
+                        <div class="item-list" value="1">
+                            <div class="icon-check"></div>
+                            <div class="item-dropdown-text">Phòng nhân sự</div>
+                        </div>
+                        <div class="item-list" value="2">
+                            <div class="icon-check"></div>
+                            <div class="item-dropdown-text">Phòng sản xuất</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="filter-input">
                     <select>
@@ -115,18 +127,28 @@
         <div class="grid-header">
             <table id="tbListData" border="0" width=100% cellspacing="0">
                 <thead>
-                    <tr>
+                    <!-- <tr>
                         <th>Mã nhân viên</th>
                         <th>Họ và tên</th>
                         <th>Giới tính</th>
                         <th>Ngày sinh</th>
                         <th>Điện thoại</th>
                         <th>Email</th>
-                        <th>Địa chỉ</th>
+                        <th>Chức vụ</th>
                         <th>Phòng ban</th>
                         <th style="max-width: 140px;">Mức lương cơ bản</th>
                         <th>Tình trạng công việc</th>
-                    </tr>
+                    </tr> -->
+                    <th class="colspan" FieldName="EmployeeCode" DataType="Text">Mã nhân viên</th>
+                    <th class="colspan" FieldName="FullName" DataType="Text">Họ và tên</th>
+                    <th class="colspan" FieldName="Gender" DataType="Text">Giới tính</th>
+                    <th class="colspan" FieldName="DateOfBirth" DataType="Date">Ngày sinh</th>
+                    <th class="colspan" FieldName="PhoneNumber" DataType="Number">Điện thoại</th>
+                    <th class="colspan" FieldName="Email" DataType="Email">Email</th>
+                    <th class="colspan" FieldName="PositionName" DataType="Text">Chức vụ</th>
+                    <th class="colspan" FieldName="DepartmentName" DataType="Text">Phòng ban</th>
+                    <th class="colspan" FieldName="Salary" DataType="Money">Mức lương cơ bản</th>
+                    <th class="colspan" FieldName="WorkStatus" DataType="Text">Tình trạng công việc</th>
                 </thead>
                 <tbody class="grid-list">
                     <!-- <tr>
@@ -189,7 +211,7 @@
                         <div class="form-row-item">
                             <div class="m-row">
                                 <div class="form-item">
-                                    <div class="m-label">Mã nhân viên (<span class="required">*</span>)</div>
+                                    <div class="m-label" id="employee-code">Mã nhân viên (<span class="required">*</span>)</div>
                                     <div>
                                         <input class="m-input" type="text" />
                                     </div>
@@ -231,7 +253,7 @@
                                 <div class="form-item">
                                     <div class="m-label">Ngày cấp</div>
                                     <div>
-                                        <input class="m-input" type="date"/>
+                                        <input class="m-input" type="date" />
                                     </div>
                                 </div>
 
@@ -341,8 +363,9 @@
         </div>
 
     </div>
-    
+
     <script src="/lib/jquery-3.6.0.min.js"></script>
     <script src="/js/page/employee.js"></script>
 </body>
+
 </html>

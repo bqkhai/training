@@ -7,18 +7,18 @@ $(document).ready(function () {
  * Hàm mở form thêm nhân viên 
  * Author: bqkhai (6/7/2021)
  */
- function openform(){
+function openform() {
     var modal = document.getElementById("m-dialog dialog-detail");
-    modal.style.display="block";
+    modal.style.display = "block";
 }
 
 /**
  * Hàm đóng form thêm nhân viên 
  * Author: bqkhai (6/7/2021)
  */
-function closeform(){
+function closeform() {
     var modal = document.getElementById("m-dialog dialog-detail");
-    modal.style.display="none";
+    modal.style.display = "none";
 }
 
 /**
@@ -29,24 +29,19 @@ function initEvents() {
     var me = this;
 
     //Sự kiện highlight khi click chuột trên bảng
-    // $('#tbListData tbody').on('click', 'tr', function () {
-    //     $('.m-dialog').css('display', 'block');
-    //     $(this).css('background', '#8ec252');
-    // })
-
-    $("#tbListData tbody").on('click', 'tr', function (){
+    $("#tbListData tbody").on('click', 'tr', function () {
         $('tr').removeClass('selected');
         $(this).addClass('selected');
     })
 
-    $("#tbListData tbody").on('dblclick', 'tr', function (){
+    $("#tbListData tbody").on('dblclick', 'tr', function () {
         $('tr').removeClass('selected');
         $(this).addClass('selected');
         $('.m-dialog').css('display', 'block');
     })
 
     // Sự kiện click button refresh
-    $("#my-btn").click(function (){
+    $("#my-btn").click(function () {
         // Làm trống bảng
         $("#tbListData tbody").empty();
         me.loadData();
@@ -85,7 +80,7 @@ function loadData() {
                 phone = 'Không xác định';
             }
             let mail = item.Email;
-            let address = item.IdentityPlace;
+            let postisionName = item.PositionName;
             let departmentName = item.DepartmentName;
             let salary = formatSalary(item.Salary);
             let workStatus = item.WorkStatus;
@@ -100,7 +95,7 @@ function loadData() {
                     <td>${dateOfBirth}</td>
                     <td>${phone}</td>
                     <td>${mail}</td>
-                    <td>${address}</td>
+                    <td>${postisionName}</td>
                     <td>${departmentName}</td>
                     <td style="text-align:right;">${salary}</td>
                     <td>${workStatus}</td>
@@ -115,20 +110,40 @@ function loadData() {
 }
 
 /**
+* Thêm mới dữ liệu
+* Author: bqkhai (5/7/2021)
+*/
+function add() {
+    $.ajax({
+        url: this.dataUrl,
+        method: "POST",
+        data: JSON.stringify(employee),
+        contentType: 'application/json'
+    }).done(function (res) {
+        console.log('Thêm thành công');
+        // toggleDialog();
+
+        console.log(res);
+    }).fail(function (err) {
+        console.log(err);
+    })
+}
+
+/**
  * Format dữ liệu ngày tháng năm dạng json sang ngày / tháng / năm
  * @param {*} date tham số có kiểu dữ liệu bắt kỳ
  * @returns 
  * CreatedBy: bqkhai (6/7/2021)
  */
-function formatDate(date){
+function formatDate(date) {
     var date = new Date(date);
-    if(Number.isNaN(date.getTime())){
+    if (Number.isNaN(date.getTime())) {
         return "";
     }
     else {
         var day = date.getDate(),
             month = date.getMonth() + 1;
-            year = date.getFullYear();
+        year = date.getFullYear();
         day = day < 10 ? '0' + day : day;
         month = month < 10 ? '0' + month : month;
     }
@@ -140,7 +155,7 @@ function formatDate(date){
  * @param {*} salary Số tiền
  * Created by bqkhai (6/7/2021)
  */
-function formatSalary(money){
+function formatSalary(money) {
     const numberFormat = new Intl.NumberFormat('vi-VN');
     if (money === null) {
         money = 'Không xác định';
@@ -151,3 +166,16 @@ function formatSalary(money){
     }
     return money;
 }
+
+
+
+
+/**
+ * Hàm đổ dữ liệu vào form sau khi dbclick()
+ * Author: bqkhai
+ */
+
+
+/**
+ *
+ */

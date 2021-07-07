@@ -1,3 +1,7 @@
+.m-popup{
+    font-family: "GoogleSans-Regular";
+}
+
 .popup-modal {
     opacity: 0.5;
     position: fixed;
@@ -52,14 +56,28 @@
         background-repeat: no-repeat;
         background-size: 20px;
         background-position: center;
+        cursor: pointer;
     }
         .popup-header .popup-close:hover{
             background-color: #e9ebee;
         }
 
 .popup-body {
-    background-color: bisque;
+    font-size: 13px;
+    display: flex;
 }
+
+    .popup-body .popup-left{
+        height: 30px;
+        width: 30px;
+        padding-left: 24px;
+        padding-top: 24px;
+    }
+
+    .popup-body .popup-text{
+        padding-top: 24px;
+        padding-left: 10px;
+    }
 
 .popup-footer {
     position: absolute;
