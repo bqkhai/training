@@ -4,6 +4,24 @@ $(document).ready(function () {
 })
 
 /**
+ * Hàm mở form thêm nhân viên 
+ * Author: bqkhai (6/7/2021)
+ */
+ function openform(){
+    var modal = document.getElementById("m-dialog dialog-detail");
+    modal.style.display="block";
+}
+
+/**
+ * Hàm đóng form thêm nhân viên 
+ * Author: bqkhai (6/7/2021)
+ */
+function closeform(){
+    var modal = document.getElementById("m-dialog dialog-detail");
+    modal.style.display="none";
+}
+
+/**
  * Khởi tạo sự kiện
  * Author: BQKhai (05/07/2021)
  */
