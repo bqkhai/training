@@ -23,18 +23,18 @@
     margin-bottom: 16px;
     box-sizing: border-box;
     position: relative;
-    border: 1px solid #bbb;
+    border: 1px solid #bbbbbb;
     border-radius: 4px;
 }
 
 .formadd-select-box:hover {
-    border: 1px solid #e9ebee;
+    border: 1px solid #019160;
 }
 
 .btn-select-box {
     position: absolute;
     padding: 11px 0 11px 16px;
-    background-color: #fff;
+    background-color: #ffffff;
     outline: none;
     border: none;
     cursor: pointer;
@@ -126,5 +126,5 @@
 .dropdown-item label:hover {
     cursor: pointer;
     background-color: #e9ebee;
-    color: #fff;
+    color: #ffffff;
 }
