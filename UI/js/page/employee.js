@@ -23,7 +23,7 @@ function closeform() {
 
 /**
  * Khởi tạo sự kiện
- * Author: BQKhai (05/07/2021)
+ * Author: bqkhai (05/07/2021)
  */
 function initEvents() {
     var me = this;
@@ -46,6 +46,59 @@ function initEvents() {
         $("#tbListData tbody").empty();
         me.loadData();
     })
+
+    $("#btnSave").click(function () {
+        //validate dữ liệu
+        //thu thập thông tin dữ liệu được nhập ->
+        //Gọi service tương ứng khi lưu dữ liệu
+        //Sau khi lưu thành công -> thông báo -> ẩn form -> load lại dữ liệu
+    })
+
+    /**
+     * Hàm validate tránh bỏ trống input
+     * Author: bqkhai (8/7/2021)
+     */
+    $('input[required]').blur(function () {
+        //kiểm tra nhập nếu trống thì cảnh báo
+        var value = $(this).val();
+        if (!value) {
+            $(this).addClass('border-red');
+            $(this).attr('title', 'Trường này không được phép để trống.');
+        } else {
+            $(this).removeClass('border-red');
+        }
+    })
+
+    /**
+     * Hàm validate email
+     * Author: bqkhai (8/7/2021)
+     */
+    $('input[type="email"]').blur(function () {
+        var email = $(this).val();
+        var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        if( !regex.test(email)){
+            $(this).addClass('border-red');
+            $(this).attr('title', 'Email không đúng định dạng');
+        }
+        else{
+            $(this).removeClass('border-red');
+        }
+    })
+
+    /**
+     * Hàm validate số điện thoại
+     * Author: bqkhai (8/7/2021)
+     */
+    // $('#txtPhoneNumber').on('keyup', function () {
+    //     var phone_number = $(this).val();
+    //     if (phone_number.length == 10){
+    //         $(this).addClass('border-red');
+    //         $(this).attr('title', 'Số điện thoại không đúng định dạng');
+    //     }
+    //     else{
+    //         $(this).removeClass('border-red');
+    //     }
+    // })
 }
 
 
@@ -64,7 +117,6 @@ function loadData() {
         // dataType:"json"
     }).done(function (response) {
         let data = response;
-
         //Duyệt từng đối tượng xử lý các thông tin
         $.each(data, function (index, item) {
             let employeeCode = item.EmployeeCode;

@@ -230,3 +230,7 @@
     height: 30px;
     box-sizing: border-box;
 }
+
+input.border-red{
+    border: 1px solid red;
+}
