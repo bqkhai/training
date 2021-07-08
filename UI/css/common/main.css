@@ -8,6 +8,17 @@ body {
     font-size: 13px;
 }
 
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.show {
+    visibility: visible;
+    transition: 0.3s;
+}
+
 @font-face {
     font-family: 'GoogleSans-Regular';
     src: url("/content/font/GoogleSans-Regular.otf");

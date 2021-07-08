@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="/css/common/input.css">
     <link rel="stylesheet" href="/css/common/table.css">
     <link rel="stylesheet" href="/css/common/pagination.css">
+    <link rel="stylesheet" href="/css/common/dropdown.css">
     <link rel="stylesheet" href="/css/form/dialog.css">
     <link rel="stylesheet" href="/css/pages/employee.css">
 </head>
@@ -94,30 +95,86 @@
                         onfocus="this.placeholder=''" style="width: 240px;">
                 </div>
                 <div class="filter-input">
-                    <input type="text" class="dropdown-input-text" />
-                    <div class="dropdown-button-select" hide=true></div>
-                    <div class="dropdown-list-box" style="display:none;">
-                        <div class="item-list" value="0" row>
-                            <div class="icon-check"></div>
-                            <div class="item-dropdown-text">Tất cả phòng ban</div>
-                        </div>
-                        <div class="item-list" value="1">
-                            <div class="icon-check"></div>
-                            <div class="item-dropdown-text">Phòng nhân sự</div>
-                        </div>
-                        <div class="item-list" value="2">
-                            <div class="icon-check"></div>
-                            <div class="item-dropdown-text">Phòng sản xuất</div>
+                    <div class="select-box select-box-department">
+                        <button class="btn-select-box btn-dropdown-department">
+                            <div class="select-box-icon">
+                                <i class="fa fa-chevron-down"></i>
+                            </div>
+                        </button>
+                        <input class="select-box-text" value="Tất cả nhân viên"></input>
+                        <div class="dropdown-box dropdown-box-department hidden">
+                            <div class="dropdown-item dropdown-item-first">
+                                <div class="dropdown-item__icon"></div>
+                                <input type="radio" id="radio-department-0" name="radio-department"
+                                    value="Tất cả phòng ban" checked></input>
+                                <label for="radio-department-0">Tất cả phòng ban</label>
+                            </div>
+                            <div class="dropdown-item">
+                                <div class="dropdown-item__icon"></div>
+                                <input type="radio" id="radio-department-1" name="radio-department"
+                                    value="Phòng nhân sự" checked></input>
+                                <label for="radio-department-1">Phòng nhân sự</label>
+                            </div>
+                            <div class="dropdown-item">
+                                <div class="dropdown-item__icon"></div>
+                                <input type="radio" id="radio-department-2" name="radio-department"
+                                    value="Phòng sản xuất" checked></input>
+                                <label for="radio-department-2">Phòng sản xuất</label>
+                            </div>
+                            <div class="dropdown-item">
+                                <div class="dropdown-item__icon"></div>
+                                <input type="radio" id="radio-department-3" name="radio-department"
+                                    value="Phòng nghiên cứu" checked></input>
+                                <label for="radio-department-3">Phòng nghiên cứu</label>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="filter-input">
-                    <select>
-                        <option>Tất cả vị trí</option>
-                        <option>Tất cả vị trí</option>
-                        <option>Tất cả vị trí</option>
-                        <option>Tất cả vị trí</option>
-                    </select>
+                    <div class="select-box">
+                        <button class="btn-select-box btn-dropdown-position">
+                            <div class="select-box-icon">
+                                <i class="fa fa-chevron-down"></i>
+                            </div>
+                        </button>
+                        <input class="select-box-text" value="Tất cả vị trí"></input>
+                        <div class="dropdown-box dropdown-box-position hidden">
+                            <div class="dropdown-item dropdown-item-first">
+                                <div class="dropdown-item__icon"></div>
+                                <input type="radio" id="radio-position-1" name="radio-position" value="Tất cả vị trí"
+                                    checked></input>
+                                <label for="radio-position-1">Tất cả vị trí</label>
+                            </div>
+                            <div class="dropdown-item">
+                                <div class="dropdown-item__icon"></div>
+                                <input type="radio" id="radio-position-2" name="radio-position"
+                                    value="Giám đốc"></input>
+                                <label for="radio-position-2">Giám đốc</label>
+                            </div>
+                            <div class="dropdown-item">
+                                <div class="dropdown-item__icon"></div>
+                                <input type="radio" id="radio-position-3" name="radio-position"
+                                    value="Phó giám đốc"></input>
+                                <label for="radio-position-3">Phó giám đốc</label>
+                            </div>
+                            <div class="dropdown-item">
+                                <div class="dropdown-item__icon"></div>
+                                <input type="radio" id="radio-position-4" name="radio-position"
+                                    value="Trưởng phòng"></input>
+                                <label for="radio-position-4">Trưởng phòng</label>
+                            </div>
+                            <div class="dropdown-item">
+                                <div class="dropdown-item__icon"></div>
+                                <input type="radio" id="radio-position-5" name="radio-position"
+                                    value="EM"></input>
+                                <label for="radio-position-5">EM</label>
+                            </div>
+                            <div class="dropdown-item dropdown-item-last">
+                                <div class="dropdown-item__icon"></div>
+                                <input type="radio" id="radio-position-5" name="radio-position"
+                                    value="Nhân viên"></input>
+                                <label for="radio-position-5">Nhân viên</label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="filter-right">
@@ -211,7 +268,8 @@
                         <div class="form-row-item">
                             <div class="m-row">
                                 <div class="form-item">
-                                    <div class="m-label" id="employee-code">Mã nhân viên (<span class="required">*</span>)</div>
+                                    <div class="m-label" id="employee-code">Mã nhân viên (<span
+                                            class="required">*</span>)</div>
                                     <div>
                                         <input class="m-input" type="text" />
                                     </div>
@@ -365,6 +423,54 @@
     </div>
 
     <script src="/lib/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            clickSelectBox();
+        })
+
+        function clickSelectBox() {
+            $(`.btn-select-box`).click(function () {
+                const dropdownName = `dropdown-box-${$(this).attr('class').split(/\s+/)[1].split('-')[2]}`
+                if ($(`.${dropdownName}`).hasClass('hidden')) {
+                    showDropdown(dropdownName);
+                } else {
+                    hideDropdown(dropdownName);
+                }
+            })
+        }
+
+        function getSelectedItem(dropdownName) {
+            let itemName = dropdownName.split('-')[2];
+            let el = $(`.${dropdownName} .dropdown-item .dropdown-item__icon`);
+            el.empty();
+            el.append('<i class="fa fa-check"></i>')
+            $(`.dropdown-item input[name=radio-${itemName}]`).change(function () {
+                $(`.btn-dropdown-${itemName}~.select-box-text`).val($(this).val());
+                hideDropdown(dropdownName);
+            })
+        }
+
+        function hideDropdown(dropdownName) {
+            const name = dropdownName.split('-')[2]
+            $(`.${dropdownName}`).addClass('hidden');
+            $(`.${dropdownName}`).removeClass('show');
+            $(`.btn-dropdown-${name} .select-box-icon i`).removeClass('fa-chevron-up')
+            $(`.btn-dropdown-${name} .select-box-icon i`).addClass('fa-chevron-down')
+        }
+
+        function showDropdown(dropdownName) {
+            $('.dropdown-box').removeClass('show');
+            $('.dropdown-box').addClass('hidden');
+            $(`.btn-select-box .select-box-icon i`).removeClass('fa-chevron-up')
+            $(`.btn-select-box .select-box-icon i`).addClass('fa-chevron-down')
+            const name = dropdownName.split('-')[2];
+            getSelectedItem(dropdownName)
+            $(`.${dropdownName}`).removeClass('hidden');
+            $(`.${dropdownName}`).addClass('show');
+            $(`.btn-dropdown-${name} .select-box-icon i`).removeClass('fa-chevron-down')
+            $(`.btn-dropdown-${name} .select-box-icon i`).addClass('fa-chevron-up')
+        }
+    </script>
     <script src="/js/page/employee.js"></script>
 </body>
 
