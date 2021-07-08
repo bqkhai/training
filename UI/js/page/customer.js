@@ -2,6 +2,7 @@ $(document).ready(function(){
     new CustomerPage();
 })
 
+//Class CustomerPage
 class CustomerPage{
     // Title: "Danh sách khách hàng";
     // TableList = $(#tbListData);

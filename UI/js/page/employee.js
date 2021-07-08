@@ -4,7 +4,7 @@ $(document).ready(function () {
 })
 
 /**
- * Hàm mở form thêm nhân viên 
+ * Hàm mở form nhân viên 
  * Author: bqkhai (6/7/2021)
  */
 function openform() {
@@ -13,7 +13,7 @@ function openform() {
 }
 
 /**
- * Hàm đóng form thêm nhân viên 
+ * Hàm đóng form nhân viên 
  * Author: bqkhai (6/7/2021)
  */
 function closeform() {

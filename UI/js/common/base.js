@@ -1,3 +1,4 @@
+//class baseJS
 class baseJS{
     constructor(){
 
