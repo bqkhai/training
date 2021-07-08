@@ -8,7 +8,7 @@
     width:100%;
     height:100vh;
     background-color:#000000;
-    z-index:10;
+    z-index:20;
     top:0;
     bottom:0;
     left:0;
@@ -18,10 +18,10 @@
     .m-dialog .dialog-content {
         position: fixed;
         width: 820px;
-        height: 860px;
+        height: 890px;
         background-color: #ffffff;
-        z-index: 10;
-        top: calc(50% - 430px);
+        z-index: 20;
+        top: calc(50% - 445px);
         left: calc(50% - 410px);
         border-radius:5px;
  
@@ -190,6 +190,15 @@
 
 .form-item{
     width:48%;
+}
+
+.form-select-box{
+    width: 100%;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    position: relative;
+    border: 1px solid #bbbbbb;
+    border-radius: 4px;
 }
 
 .m-label{

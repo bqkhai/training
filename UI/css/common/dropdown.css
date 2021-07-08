@@ -7,6 +7,13 @@
     border-radius: 4px;
 }
 
+/* .select-box-restaurant{
+    width: 200px;
+    box-sizing: border-box;
+    position: relative;
+    border-radius: 4px;
+} */
+
 .select-box:hover {
     border: 1px solid #e9ebee;
 }
@@ -62,7 +69,7 @@
 }
 
 .dropdown-box {
-    z-index: 50;
+    z-index: 15;
     position: absolute;
     margin-top: 5px;
     box-sizing: border-box;
