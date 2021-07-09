@@ -49,8 +49,49 @@ function initEvents() {
 
     $("#btnSave").click(function () {
         //validate dữ liệu
+        var inputValidates = $('input[required], input[type=email], #nbPhoneNumber');
+        $.each(inputValidates, (index, input) => {
+            $(input).trigger('blur');
+        })
+        let inputNotValids = $('input[validate=false]');
+        if (inputNotValids && inputNotValids.length > 0) {
+            alert("Dữ liệu không hợp lệ vui lòng kiểm tra lại.")
+            inputNotValids[0].focus();
+            return;
+        }
         //thu thập thông tin dữ liệu được nhập ->
+        var employee = {
+            "EmployeeCode": $('#txtEmployeeCode').val(),
+            "FullName": $('#txtFullName').val(),
+            "DateOfBirth": $('#txtDateOfBirth').val(),
+            "Gender": $('#txtGender').val(),
+            "IdentityNumber": $('#txtIdentityNumber').val(),
+            "IdentityDate": $('#txtIdentityDate').val(),
+            "IdentityPlace": $('#txtIdentityPlace').val(),
+            "Email": $('#txtEmail').val(),
+            "PhoneNumber": $('#txtPhoneNumber').val(),
+            "PersonalTaxCode": $('#txtPersonalTaxCode').val(),
+            "Salary": $('#txtSalary').val(),
+            "JoinDate": $('#txtJoinDate').val()
+        }
+        
         //Gọi service tương ứng khi lưu dữ liệu
+        // Post dữ liệu
+        $.ajax({
+            url: "http://cukcuk.manhnv.net/v1/Employees",
+            method: "POST",
+            data: JSON.stringify(employee),
+            contentType: 'application/json'
+        }).done(function (res) {
+            debugger
+            alert('Thêm thành công');
+            // Ẩn form
+            closeform();
+            // load lại dữ liệu
+            me.loadData();
+        }).fail(function (err) {
+            console.log(err);
+        })
         //Sau khi lưu thành công -> thông báo -> ẩn form -> load lại dữ liệu
     })
 
@@ -64,8 +105,11 @@ function initEvents() {
         if (!value) {
             $(this).addClass('border-red');
             $(this).attr('title', 'Trường này không được phép để trống.');
+            $(this).attr('validate', false);
         } else {
             $(this).removeClass('border-red');
+            $(this).attr('title', '');
+            $(this).attr('validate', true);
         }
     })
 
@@ -76,12 +120,15 @@ function initEvents() {
     $('input[type="email"]').blur(function () {
         var email = $(this).val();
         var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-        if( !regex.test(email)){
+        if (!regex.test(email)) {
             $(this).addClass('border-red');
             $(this).attr('title', 'Email không đúng định dạng');
+            $(this).attr('validate', false)
         }
-        else{
+        else {
             $(this).removeClass('border-red');
+            $(this).attr('validate', true);
+            $(this).attr('title', '');
         }
     })
 
@@ -89,16 +136,37 @@ function initEvents() {
      * Hàm validate số điện thoại
      * Author: bqkhai (8/7/2021)
      */
-    // $('#txtPhoneNumber').on('keyup', function () {
-    //     var phone_number = $(this).val();
-    //     if (phone_number.length == 10){
-    //         $(this).addClass('border-red');
-    //         $(this).attr('title', 'Số điện thoại không đúng định dạng');
-    //     }
-    //     else{
-    //         $(this).removeClass('border-red');
-    //     }
-    // })
+    $('#txtPhoneNumber').on('blur', function () {
+        var phone_number = $(this).val();
+        if (phone_number.length === 10) {
+            $(this).removeClass('border-red');
+            $(this).attr('title', '');
+            $(this).attr('validate', true);
+        }
+        else {
+            $(this).addClass('border-red');
+            $(this).attr('title', 'Số điện thoại phải có 10 chữ số');
+            $(this).attr('validate', false);
+        }
+    })
+
+    /**
+     * Hàm validate số CMTND/Căn cước có 9 hoặc 12 chữ số
+     * Author: bqkhai (8/7/2021)
+     */
+    $('#txtIdentityNumber').on('blur', function () {
+        var identity_number = $(this).val();
+        if (identity_number.length === 9 || identity_number.length === 12) {
+            $(this).removeClass('border-red');
+            $(this).attr('title', '');
+            $(this).attr('validate', true);
+        }
+        else {
+            $(this).addClass('border-red');
+            $(this).attr('title', 'Số CMTND/Căn cước phải có 9 hoặc 12 chữ số');
+            $(this).attr('validate', false);
+        }
+    })
 }
 
 
@@ -173,8 +241,6 @@ function add() {
         contentType: 'application/json'
     }).done(function (res) {
         console.log('Thêm thành công');
-        // toggleDialog();
-
         console.log(res);
     }).fail(function (err) {
         console.log(err);
