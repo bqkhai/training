@@ -21,6 +21,14 @@ function closeform() {
     modal.style.display = "none";
 }
 
+// function refreshData() {
+//     $("#my-btn").click(function () {
+//         // Làm trống bảng
+//         $("#tbListData tbody").empty();
+//         loadData();
+//     })
+// }
+
 /**
  * Khởi tạo sự kiện
  * Author: bqkhai (05/07/2021)
@@ -49,7 +57,7 @@ function initEvents() {
 
     $("#btnSave").click(function () {
         //validate dữ liệu
-        var inputValidates = $('input[required], input[type=email], #nbPhoneNumber');
+        var inputValidates = $('input[required], input[type=email], #txtPhoneNumber');
         $.each(inputValidates, (index, input) => {
             $(input).trigger('blur');
         })
@@ -74,7 +82,7 @@ function initEvents() {
             "Salary": $('#txtSalary').val(),
             "JoinDate": $('#txtJoinDate').val()
         }
-        
+
         //Gọi service tương ứng khi lưu dữ liệu
         // Post dữ liệu
         $.ajax({
@@ -83,16 +91,14 @@ function initEvents() {
             data: JSON.stringify(employee),
             contentType: 'application/json'
         }).done(function (res) {
-            debugger
             alert('Thêm thành công');
             // Ẩn form
             closeform();
             // load lại dữ liệu
-            me.loadData();
+            loadData();
         }).fail(function (err) {
             console.log(err);
         })
-        //Sau khi lưu thành công -> thông báo -> ẩn form -> load lại dữ liệu
     })
 
     /**
@@ -167,6 +173,7 @@ function initEvents() {
             $(this).attr('validate', false);
         }
     })
+    loadData();
 }
 
 
@@ -178,7 +185,7 @@ function initEvents() {
 function loadData() {
     //1. Lấy dữ liệu từ API về
     $.ajax({
-        method: "GET", //GET: Lấy dữ liệu; POST: Thêm mới; PUT: sửa; DELETE: xóa.
+        method: "GET", //GET: Lấy dữ liệu
         url: "http://cukcuk.manhnv.net/v1/Employees",
         // data:"",
         // contentType:"application/json",
@@ -191,7 +198,7 @@ function loadData() {
             let fullName = item.FullName;
             let genderName = item.GenderName;
             if (genderName === null) {
-                genderName = 'Không xác định';
+                genderName = 'Không có';
             }
             let dateOfBirth = item.DateOfBirth;
             dateOfBirth = formatDate(dateOfBirth);
@@ -201,12 +208,19 @@ function loadData() {
             }
             let mail = item.Email;
             let postisionName = item.PositionName;
+            if (postisionName === null) {
+                postisionName = 'Không xác định';
+            }
             let departmentName = item.DepartmentName;
+            if (departmentName === null) {
+                departmentName = 'Không xác định';
+            }
             let salary = formatSalary(item.Salary);
             let workStatus = item.WorkStatus;
             if (workStatus === null) {
-                workStatus = 'Không xác định'
+                workStatus = ''
             }
+            else workStatus = 'Trạng thái ' + workStatus;
             let trHtml = `
                 <tr>
                     <td>${employeeCode}</td>
