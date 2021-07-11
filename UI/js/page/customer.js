@@ -3,14 +3,14 @@ $(document).ready(function(){
 })
 
 //Class CustomerPage
-class CustomerPage{
-    // Title: "Danh sách khách hàng";
-    // TableList = $(#tbListData);
-
+class CustomerPage extends baseJS{
     constructor(){
-        this.loadData();
+        super();
     }
 
+    eventInits(){
+
+    }
 
     /**
      * Hàm load danh sách khách hàng
@@ -21,6 +21,10 @@ class CustomerPage{
     }
 
     add(){
+
+    }
+
+    update(){
 
     }
 

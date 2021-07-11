@@ -53,3 +53,17 @@
     cursor: pointer;
     background-color: #e9ebee;
 }
+
+.m-btn-delete {
+    background-image: url(/content/icon/icons8-trash.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    box-sizing: border-box;
+    margin-right: 8px;
+    border: 1px solid #bbbbbb;
+    cursor: pointer;
+}
+
+.m-btn-delete:hover {
+    background-color: #e9ebee;
+}

@@ -19,6 +19,10 @@ body {
     transition: 0.3s;
 }
 
+.hide-dialog{
+    display: none !important;
+}
+
 @font-face {
     font-family: 'GoogleSans-Regular';
     src: url("/content/font/GoogleSans-Regular.otf");
