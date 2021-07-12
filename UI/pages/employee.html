@@ -369,7 +369,7 @@
                                                 <i class="fa fa-chevron-down"></i>
                                             </div>
                                         </button>
-                                        <input class="select-box-text" id="cbxPositionId" fieldName="PositionId"
+                                        <input class="select-box-text" id="cbxPositionId" fieldName="PositionName"
                                             value="Tất cả vị trí"></input>
 
                                         <div class="dropdown-box dropdown-box-formposition hidden">
@@ -414,7 +414,7 @@
                                                 <i class="fa fa-chevron-down"></i>
                                             </div>
                                         </button>
-                                        <input class="select-box-text" id="cbxDepartmentId" fieldName="DepartmentId"
+                                        <input class="select-box-text" id="cbxDepartmentId" fieldName="DepartmentName"
                                             value="Tất cả phòng ban"></input>
 
                                         <div class="dropdown-box dropdown-box-formdepartment hidden">
@@ -516,9 +516,9 @@
             </div>
         </div>
     </div>
-    <!-- </div> -->
 
-    <div class="m-popup">
+    <!-- </div> -->
+    <div class="m-popup hide-popup" id="popup">
         <div class="popup-modal"></div>
         <div class="popup-box">
             <div class="popup-header">
@@ -526,7 +526,7 @@
                 <div class="popup-close"></div>
             </div>
             <div class="popup-body">
-                <div class="popup-left"></div>
+                <div class="popup-left-icon"></div>
                 <div class="popup-text">
                     <p>Bạn có chắc muốn đóng form nhập <b>"Thông tin chung của</b></p>
                     <p><b>thủ tục 603"</b> hay không?</p>
@@ -535,6 +535,26 @@
             <div class="popup-footer">
                 <button id="btn-cancel-popup" class="m-second-button btn-cancel-popup">Tiếp tục nhập</button>
                 <button id="btn-close" class="btn-close">Đóng</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="m-popup-delete hide-popup-delete" id="popup-delete">
+        <div class="popup-modal"></div>
+        <div class="popup-box">
+            <div class="popup-header">
+                <div class="popup-title">Cảnh báo</div>
+                <div class="popup-close-delete"></div>
+            </div>
+            <div class="popup-body">
+                <div class="popup-left-icon"></div>
+                <div class="popup-text">
+                    <p>Bạn có chắc muốn <b>"xóa bản ghi hay không"</b></p>
+                </div>
+            </div>
+            <div class="popup-footer">
+                <button id="btn-cancel-delete" class="m-second-button btn-cancel-delete">Không</button>
+                <button id="btn-close" class="btn-close-delete">Có</button>
             </div>
         </div>
     </div>

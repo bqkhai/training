@@ -31,6 +31,20 @@ class EmployeeJS extends baseJS {
      */
     closeForm() {
         $('.dialog-header-close, .btn-cancel-box').on('click', function (e) {
+            $('.m-popup').removeClass('hide-popup');
+        });
+    }
+
+    eventEmpolyeeInits() {
+
+        // hiện popup khi click icon 'x' hay button 'hủy' trên form
+        $('.dialog-header-close, .btn-cancel-box').on('click', function (e) {
+            $('.m-popup').removeClass('hide-popup');
+        })
+
+        // đóng popup và form khi click button 'Đóng'
+        $('.btn-close').on('click', function (e) {
+            $('.m-popup').addClass('hide-popup');
             //xóa input nhập trong form
             clearInputForm();
             //xóa các viền đỏ validate input khi đóng form
@@ -38,13 +52,15 @@ class EmployeeJS extends baseJS {
             e.preventDefault();
             //ẩn dialog form
             $('.dialog-modal').addClass('hide-dialog');
-        });
-    }
+        })
 
-    eventEmpolyeeInits() {
+        // đóng popup nhưng vẫn hiển thị form nhập khi click icon 'x', button 'hủy' trên popup
+        $('.popup-close, .btn-cancel-popup').on('click', function (e) {
+            $('.m-popup').addClass('hide-popup');
+        })
+
 
         var me = this;
-        var EmployeeID;
 
         //Sự kiện đánh dấu highlight khi click chuột vào tr trên bảng
         $("#tbListData tbody").on('click', 'tr', function () {
@@ -59,11 +75,38 @@ class EmployeeJS extends baseJS {
         * Method: DELETE
         * Author: bqkhai (9/7/2021)
         */
-        $('#btnDelete').click(function () {
+        $('#btnDelete').on('click', function () {
+            var checkDel = 0;
             var delRecordID = me.delRecordID;
-            var cfDelete = confirm('Bạn muốn xóa bản ghi này');
-            if (cfDelete) {
-                // Gọi api xóa nhân viên
+            // var cfDelete = confirm('Bạn muốn xóa bản ghi này');
+            // if (cfDelete) {
+            //     // Gọi api xóa nhân viên
+            //     $.ajax({
+            //         url: "http://cukcuk.manhnv.net/v1/Employees/" + `${delRecordID}`,
+            //         type: "DELETE",
+            //         contentType: 'application/json-patch+json'
+            //     }).done(function (res) {
+            //         //đưa ra thông báo thành công
+            //         alert('Xóa thành công!');
+
+            //         //load lại dữ liệu
+            //         me.loadData();
+
+            //     }).fail(function (err) {
+            //         console.log(err)
+            //     })
+            // }
+            $('.m-popup-delete').removeClass('hide-popup-delete');
+
+            $('.popup-close-delete, .btn-cancel-delete').on('click', function (e) {
+                $('.m-popup-delete').addClass('hide-popup-delete');
+                checkDel = 0;
+            })
+
+            $('.btn-close-delete').on('click', function (e) {
+                $('.m-popup-delete').addClass('hide-popup-delete');
+                checkDel = 1;
+
                 $.ajax({
                     url: "http://cukcuk.manhnv.net/v1/Employees/" + `${delRecordID}`,
                     type: "DELETE",
@@ -75,10 +118,10 @@ class EmployeeJS extends baseJS {
                     //load lại dữ liệu
                     me.loadData();
 
-                }).fail(function (res) {
-
+                }).fail(function (err) {
+                    console.log(err)
                 })
-            }
+            })
         })
 
         /**
@@ -155,6 +198,11 @@ class EmployeeJS extends baseJS {
         })
 
 
+        $('.dialog-header-close, .btn-cancel-box').on('click', function (e) {
+
+        })
+
+
         /**
          * Hàm sự kiện click button save trên form -> đẩy dữ liệu lên server
          * Method: POST
@@ -194,9 +242,8 @@ class EmployeeJS extends baseJS {
                     url: "http://cukcuk.manhnv.net/v1/Employees",
                     type: "POST",
                     data: JSON.stringify(employee),
-                    contentType: 'application/json-patch+json',
+                    contentType: 'application/json',
                 }).done(function (res) {
-                    debugger
                     //Thông báo thêm thành công
                     alert('Thêm nhân viên thành công');
                     //ẩn form 
@@ -208,7 +255,7 @@ class EmployeeJS extends baseJS {
                     //console.log(err)
                 })
             }
-            else {
+            else if (me.FormMode == 'Edit') {
                 var EmployeeID = me.EmployeeID;
                 $.ajax({
                     url: "http://cukcuk.manhnv.net/v1/Employees/" + `${EmployeeID}`,
@@ -216,6 +263,7 @@ class EmployeeJS extends baseJS {
                     data: JSON.stringify(employee),
                     contentType: 'application/json-patch+json'
                 }).done(function (res) {
+                    debugger
                     // thông báo sửa thành công
                     alert('Sửa thành công');
                     // ẩn fom chi tiết
@@ -298,32 +346,6 @@ class EmployeeJS extends baseJS {
         })
     }
 }
-
-
-/**
- * Sửa dữ liệu
- * Author: bqkhai (9/7/2021)
- */
-// edit(EmployeeId, employee) {
-//     let me = this;
-//     $.ajax({
-//         url: `${this.dataUrl}/${EmployeeId}`,
-//         method: "PUT",
-//         data: JSON.stringify(employee),
-//         contentType: 'application/json'
-//     }).done(function (res) {
-//         // Sau khi lưu thành công
-//         // + Thông báo thành công
-//         alert('Lưu thay đổi thành công');
-//         // + Ẩn form
-//         closeForm();
-//         // + load lại dữ liệu
-//         me.loadData();
-//         console.log(res);
-//     }).fail(function (err) {
-//         console.log((err))
-//     })
-// }
 
 
 /**
