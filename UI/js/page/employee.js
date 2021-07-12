@@ -7,40 +7,46 @@ class EmployeeJS extends baseJS {
         super();
         this.eventEmpolyeeInits();
         this.loadData();
-        this.openForm();
-        this.closeForm();
     }
 
-    /**
-     * Hàm mở form dialog
-     * Author: bqkhai (5/7/2021)
-     */
-    openForm() {
+    eventEmpolyeeInits() {
+
+        var me = this;
+
+        /**
+         * Hàm mở form dialog
+         * Author: bqkhai (5/7/2021)
+         */
         $('#btnAdd').on('click', function (e) {
+            me.FormMode = "Add";
             e.preventDefault();
             //hiện dialog form
             $('.dialog-modal').removeClass('hide-dialog');
             //focus vào ô mã nhân viên
             $('#txtEmployeeCode').focus();
         });
-    }
 
-    /**
-     * Hàm đóng form dialog sau khi click button 'x' hoặc chọn 'hủy' trong form dialog
-     * Author: bqkhai (5/7/2021)
-     */
-    closeForm() {
+
+        /**
+        * Hàm đóng form dialog sau khi click button 'x' hoặc chọn 'hủy' trong form dialog
+        * Author: bqkhai (5/7/2021)
+        */
         $('.dialog-header-close, .btn-cancel-box').on('click', function (e) {
             $('.m-popup').removeClass('hide-popup');
         });
-    }
 
-    eventEmpolyeeInits() {
 
         // hiện popup khi click icon 'x' hay button 'hủy' trên form
         $('.dialog-header-close, .btn-cancel-box').on('click', function (e) {
             $('.m-popup').removeClass('hide-popup');
         })
+
+
+        // đóng popup nhưng vẫn hiển thị form nhập khi click icon 'x', button 'hủy' trên popup
+        $('.popup-close, .btn-cancel-popup').on('click', function (e) {
+            $('.m-popup').addClass('hide-popup');
+        })
+
 
         // đóng popup và form khi click button 'Đóng'
         $('.btn-close').on('click', function (e) {
@@ -54,13 +60,6 @@ class EmployeeJS extends baseJS {
             $('.dialog-modal').addClass('hide-dialog');
         })
 
-        // đóng popup nhưng vẫn hiển thị form nhập khi click icon 'x', button 'hủy' trên popup
-        $('.popup-close, .btn-cancel-popup').on('click', function (e) {
-            $('.m-popup').addClass('hide-popup');
-        })
-
-
-        var me = this;
 
         //Sự kiện đánh dấu highlight khi click chuột vào tr trên bảng
         $("#tbListData tbody").on('click', 'tr', function () {
@@ -70,6 +69,17 @@ class EmployeeJS extends baseJS {
             me.delRecordID = delRecordID;
         })
 
+        $(document).mouseup(function (e) {
+            // debugger
+            // lấy phần tbody
+            var checkRange = $("#tbListData tbody");
+            //Kiểm tra nếu click chuột ra ngoài tbody thì xóa highlight
+            if (!checkRange.is(e.target) && checkRange.has(e.target).length === 0) {
+                $('#tbListData tbody tr').removeClass('selected');
+            }
+        });
+
+
         /**
         * Xóa dữ liệu theo id
         * Method: DELETE
@@ -78,35 +88,9 @@ class EmployeeJS extends baseJS {
         $('#btnDelete').on('click', function () {
             var checkDel = 0;
             var delRecordID = me.delRecordID;
-            // var cfDelete = confirm('Bạn muốn xóa bản ghi này');
-            // if (cfDelete) {
-            //     // Gọi api xóa nhân viên
-            //     $.ajax({
-            //         url: "http://cukcuk.manhnv.net/v1/Employees/" + `${delRecordID}`,
-            //         type: "DELETE",
-            //         contentType: 'application/json-patch+json'
-            //     }).done(function (res) {
-            //         //đưa ra thông báo thành công
-            //         alert('Xóa thành công!');
-
-            //         //load lại dữ liệu
-            //         me.loadData();
-
-            //     }).fail(function (err) {
-            //         console.log(err)
-            //     })
-            // }
-            $('.m-popup-delete').removeClass('hide-popup-delete');
-
-            $('.popup-close-delete, .btn-cancel-delete').on('click', function (e) {
-                $('.m-popup-delete').addClass('hide-popup-delete');
-                checkDel = 0;
-            })
-
-            $('.btn-close-delete').on('click', function (e) {
-                $('.m-popup-delete').addClass('hide-popup-delete');
-                checkDel = 1;
-
+            var cfDelete = confirm('Bạn muốn xóa bản ghi này');
+            if (cfDelete) {
+                // Gọi api xóa nhân viên
                 $.ajax({
                     url: "http://cukcuk.manhnv.net/v1/Employees/" + `${delRecordID}`,
                     type: "DELETE",
@@ -121,8 +105,35 @@ class EmployeeJS extends baseJS {
                 }).fail(function (err) {
                     console.log(err)
                 })
-            })
+            }
+            // $('.m-popup-delete').removeClass('hide-popup-delete');
+
+            // $('.popup-close-delete, .btn-cancel-delete').on('click', function (e) {
+            //     $('.m-popup-delete').addClass('hide-popup-delete');
+            // })
+
+            // $('.btn-close-delete').on('click', function (e) {
+            //     $('.m-popup-delete').addClass('hide-popup-delete');
+            //     debugger
+            //     $.ajax({
+            //         url: "http://cukcuk.manhnv.net/v1/Employees/" + `${delRecordID}`,
+            //         type: "DELETE",
+            //         contentType: 'application/json-patch+json'
+            //     }).done(function (res) {
+            //         debugger
+            //         //đưa ra thông báo thành công
+            //         alert('Xóa thành công!');
+            //         debugger
+
+            //         //load lại dữ liệu
+            //         me.loadData();
+
+            //     }).fail(function (err) {
+            //         console.log(err)
+            //     })
+            // })
         })
+
 
         /**
          * Hàm sự kiện show form dialog khi dblclick vào tr trên bảng
@@ -171,7 +182,7 @@ class EmployeeJS extends baseJS {
                     }
                     // hiển thị lên console giá trị các input
                     console.log(value);
-                    // có value, biết fieldName rồi
+                    // gán value vào các input tương ứng
                     $(`input[fieldName="${propertyName}"]`).val(value);
                 })
 
@@ -184,22 +195,12 @@ class EmployeeJS extends baseJS {
             $('.dialog-modal').removeClass('hide-dialog');
         })
 
-        //FormMode có 2 trạng thái add và edit tương ứng với thêm và sửa (post, put)
-        $('#btnAdd').on('click', function (e) {
-            me.FormMode = "Add";
-            $('.dialog-modal').removeClass('hide-dialog');
-        })
 
         // Sự kiện click button refresh load lại data trên bảng
         $("#my-btn").click(function () {
             // Làm trống bảng
             $("#tbListData tbody").empty();
             me.loadData();
-        })
-
-
-        $('.dialog-header-close, .btn-cancel-box').on('click', function (e) {
-
         })
 
 
@@ -226,36 +227,45 @@ class EmployeeJS extends baseJS {
             $.each(inputs, function (index, input) {
                 var propertyName = $(this).attr('fieldName');
                 var value;
-                if ($(input).hasClass('m-input')) {
+                if($(input).hasClass('m-input')){
                     value = $(this).val();
-                } else {
-                    //
                 }
-
+                switch (propertyName) {
+                    case 'Gender':
+                        value = (value == 'Nữ' ? 0 : 1);
+                        break;
+                    case 'WorkStatus':
+                        if (value == "Đang làm việc") {
+                            value = 0;
+                        } else if (value == "Đã nghỉ việc") {
+                            value = 0;
+                        }
+                    default:
+                        break;
+                }
                 employee[propertyName] = value;
-
             })
-            console.log(employee);
+            console.log(employee)
 
             if (me.FormMode == 'Add') {
                 $.ajax({
                     url: "http://cukcuk.manhnv.net/v1/Employees",
                     type: "POST",
                     data: JSON.stringify(employee),
-                    contentType: 'application/json',
+                    contentType: 'application/json-patch+json'
                 }).done(function (res) {
-                    //Thông báo thêm thành công
-                    alert('Thêm nhân viên thành công');
-                    //ẩn form 
+                    // thông báo thành công
+                    alert('Thêm nhân viên thành công!');
+                    // ẩn fom chi tiết
                     $('.dialog-modal').addClass('hide-dialog');
-                    //load lại dữ liệu
+                    // load lại dữ liệu
                     me.loadData();
 
-                }).fail(function (err) {
-                    //console.log(err)
+                }).fail(function (res) {
+                    console.log(res)
                 })
             }
-            else if (me.FormMode == 'Edit') {
+            else {
                 var EmployeeID = me.EmployeeID;
                 $.ajax({
                     url: "http://cukcuk.manhnv.net/v1/Employees/" + `${EmployeeID}`,
@@ -263,16 +273,15 @@ class EmployeeJS extends baseJS {
                     data: JSON.stringify(employee),
                     contentType: 'application/json-patch+json'
                 }).done(function (res) {
-                    debugger
-                    // thông báo sửa thành công
-                    alert('Sửa thành công');
+                    // thông báo thành công
+                    alert('Sửa thành công!');
                     // ẩn fom chi tiết
                     $('.dialog-modal').addClass('hide-dialog');
                     // load lại dữ liệu
                     me.loadData();
 
-                }).fail(function (err) {
-                    //console.log(err)
+                }).fail(function (res) {
+                    console.log(res)
                 })
             }
         })

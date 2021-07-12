@@ -85,6 +85,6 @@ function formatWorkStatus(workStatusCode) {
         return "Đang làm việc";
     }
     else {
-        return "";
+        return "Khác";
     }
 }
