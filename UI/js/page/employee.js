@@ -18,8 +18,6 @@ class EmployeeJS extends baseJS {
     openForm() {
         $('#btnAdd').on('click', function (e) {
             e.preventDefault();
-            //xóa input nhập trong form
-            clearInputForm();
             //hiện dialog form
             $('.dialog-modal').removeClass('hide-dialog');
             //focus vào ô mã nhân viên
@@ -33,6 +31,8 @@ class EmployeeJS extends baseJS {
      */
     closeForm() {
         $('.dialog-header-close, .btn-cancel-box').on('click', function (e) {
+            //xóa input nhập trong form
+            clearInputForm();
             //xóa các viền đỏ validate input khi đóng form
             $('input[required]').removeClass('border-red');
             e.preventDefault();
@@ -44,24 +44,41 @@ class EmployeeJS extends baseJS {
     eventEmpolyeeInits() {
 
         var me = this;
-
-        $('#btnAdd').on('click', function (e) {
-            me.FormMode = "Add";
-        })
-
-        // Sự kiện click button refresh load lại data trên bảng
-        $("#my-btn").click(function () {
-            // Làm trống bảng
-            $("#tbListData tbody").empty();
-            me.loadData();
-        })
+        var EmployeeID;
 
         //Sự kiện đánh dấu highlight khi click chuột vào tr trên bảng
         $("#tbListData tbody").on('click', 'tr', function () {
             $('tr').removeClass('selected');
             $(this).addClass('selected');
-            var tempRecordID = $(this).attr('recordID');
-            me.tempRecordID = tempRecordID;
+            var delRecordID = $(this).attr('recordID');
+            me.delRecordID = delRecordID;
+        })
+
+        /**
+        * Xóa dữ liệu theo id
+        * Method: DELETE
+        * Author: bqkhai (9/7/2021)
+        */
+        $('#btnDelete').click(function () {
+            var delRecordID = me.delRecordID;
+            var cfDelete = confirm('Bạn muốn xóa bản ghi này');
+            if (cfDelete) {
+                // Gọi api xóa nhân viên
+                $.ajax({
+                    url: "http://cukcuk.manhnv.net/v1/Employees/" + `${delRecordID}`,
+                    type: "DELETE",
+                    contentType: 'application/json-patch+json'
+                }).done(function (res) {
+                    //đưa ra thông báo thành công
+                    alert('Xóa thành công!');
+
+                    //load lại dữ liệu
+                    me.loadData();
+
+                }).fail(function (res) {
+
+                })
+            }
         })
 
         /**
@@ -73,12 +90,12 @@ class EmployeeJS extends baseJS {
             $(this).addClass('selected');
 
             me.FormMode = "Edit";
-            var tempRecordID = $(this).attr('recordID');
-            me.tempRecordID = tempRecordID;
-            console.log(tempRecordID);
+            var EmployeeID = $(this).attr('recordID');
+            me.EmployeeID = EmployeeID;
+            console.log(EmployeeID);
 
             $.ajax({
-                url: "http://cukcuk.manhnv.net/v1/Employees" + `/${tempRecordID}`,
+                url: "http://cukcuk.manhnv.net/v1/Employees/" + `${EmployeeID}`,
                 type: "GET"
             }).done(function (res) {
                 //Binding dữ liệu lên form chi tiết:
@@ -124,6 +141,19 @@ class EmployeeJS extends baseJS {
             $('.dialog-modal').removeClass('hide-dialog');
         })
 
+        //FormMode có 2 trạng thái add và edit tương ứng với thêm và sửa (post, put)
+        $('#btnAdd').on('click', function (e) {
+            me.FormMode = "Add";
+            $('.dialog-modal').removeClass('hide-dialog');
+        })
+
+        // Sự kiện click button refresh load lại data trên bảng
+        $("#my-btn").click(function () {
+            // Làm trống bảng
+            $("#tbListData tbody").empty();
+            me.loadData();
+        })
+
 
         /**
          * Hàm sự kiện click button save trên form -> đẩy dữ liệu lên server
@@ -151,7 +181,7 @@ class EmployeeJS extends baseJS {
                 if ($(input).hasClass('m-input')) {
                     value = $(this).val();
                 } else {
-
+                    //
                 }
 
                 employee[propertyName] = value;
@@ -164,45 +194,37 @@ class EmployeeJS extends baseJS {
                     url: "http://cukcuk.manhnv.net/v1/Employees",
                     type: "POST",
                     data: JSON.stringify(employee),
-                    contentType: 'application/json-patch+json'
+                    contentType: 'application/json-patch+json',
                 }).done(function (res) {
+                    debugger
                     //Thông báo thêm thành công
-                    alert('Thêm thành công!');
+                    alert('Thêm nhân viên thành công');
                     //ẩn form 
                     $('.dialog-modal').addClass('hide-dialog');
                     //load lại dữ liệu
                     me.loadData();
 
                 }).fail(function (err) {
-                    console.log(err)
+                    //console.log(err)
                 })
             }
-        })
-
-
-        /**
-        * Xóa dữ liệu theo id
-        * Method: DELETE
-        * Author: bqkhai (9/7/2021)
-        */
-        $('#btnDelete').click(function () {
-            var tempRecordID = me.tempRecordID;
-            var cfDelete = confirm('Bạn muốn xóa bản ghi này');
-            if (cfDelete) {
-                // Gọi api xóa nhân viên
+            else {
+                var EmployeeID = me.EmployeeID;
                 $.ajax({
-                    url: "http://cukcuk.manhnv.net/v1/Employees/" + `${tempRecordID}`,
-                    type: "DELETE",
+                    url: "http://cukcuk.manhnv.net/v1/Employees/" + `${EmployeeID}`,
+                    type: "PUT",
+                    data: JSON.stringify(employee),
                     contentType: 'application/json-patch+json'
                 }).done(function (res) {
-                    //đưa ra thông báo thành công
-                    alert('Xóa thành công!');
-
-                    //load lại dữ liệu
+                    // thông báo sửa thành công
+                    alert('Sửa thành công');
+                    // ẩn fom chi tiết
+                    $('.dialog-modal').addClass('hide-dialog');
+                    // load lại dữ liệu
                     me.loadData();
 
-                }).fail(function (res) {
-
+                }).fail(function (err) {
+                    //console.log(err)
                 })
             }
         })
