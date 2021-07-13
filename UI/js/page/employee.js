@@ -244,8 +244,11 @@ class EmployeeJS extends baseJS {
                         if (value == "Đang làm việc") {
                             value = 0;
                         } else if (value == "Đã nghỉ việc") {
-                            value = 0;
+                            value = 1;
                         }
+                    // case 'Salary':
+                    //     value = $('input[Salary]').replace('.', '');
+                    //     break;
                     default:
                         break;
                 }

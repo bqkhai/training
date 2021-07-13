@@ -82,9 +82,9 @@ function formatGender(genderCode) {
  */
 function formatWorkStatus(workStatusCode) {
     if (workStatusCode == 0) {
-        return "Đã nghỉ việc";
-    } else if (workStatusCode == 1) {
         return "Đang làm việc";
+    } else if (workStatusCode == 1) {
+        return "Đã nghỉ việc";
     }
     else {
         return "Khác";
