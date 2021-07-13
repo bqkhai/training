@@ -13,6 +13,12 @@ class EmployeeJS extends baseJS {
 
         var me = this;
 
+        //sự kiện navbar menu, click chuột đổi màu navbar-item
+        $(".navbar-content a").click(function () {
+            $(".navbar-content a").removeClass("active");
+            $(this).addClass("active");
+        });
+
         /**
          * Hàm mở form dialog
          * Author: bqkhai (5/7/2021)
@@ -167,9 +173,9 @@ class EmployeeJS extends baseJS {
                         case 'JoinDate':
                             value = formatDate(value, 2);
                             break;
-                        case 'Salary':
-                            value = formatSalary(value);
-                            break;
+                        // case 'Salary':
+                        //     value = formatSalary(value);
+                        //     break;
                         case 'Gender':
                             value = formatGender(value);
                             break;
@@ -227,7 +233,7 @@ class EmployeeJS extends baseJS {
             $.each(inputs, function (index, input) {
                 var propertyName = $(this).attr('fieldName');
                 var value;
-                if($(input).hasClass('m-input')){
+                if ($(input).hasClass('m-input')) {
                     value = $(this).val();
                 }
                 switch (propertyName) {
@@ -308,10 +314,7 @@ class EmployeeJS extends baseJS {
             $.each(data, function (index, item) {
                 let employeeCode = item.EmployeeCode;
                 let fullName = item.FullName;
-                let genderName = item.GenderName;
-                if (genderName === null) {
-                    genderName = 'Không có';
-                }
+                let genderName = formatGender(item.Gender);
                 let dateOfBirth = item.DateOfBirth;
                 dateOfBirth = formatDate(dateOfBirth, 1);
                 let phone = item.PhoneNumber;
@@ -328,11 +331,7 @@ class EmployeeJS extends baseJS {
                     departmentName = 'Không xác định';
                 }
                 let salary = formatSalary(item.Salary);
-                let workStatus = item.WorkStatus;
-                if (workStatus === null) {
-                    workStatus = ''
-                }
-                else workStatus = 'Trạng thái ' + workStatus;
+                let workStatus = formatWorkStatus(item.WorkStatus);
                 let trHtml = `
                     <tr recordID= "${item.EmployeeId}">
                         <td>${employeeCode}</td>

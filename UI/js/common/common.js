@@ -65,12 +65,14 @@ function formatMoneyInput(){
  * Author: bqkhai (9/7/2021)
  */
 function formatGender(genderCode) {
-    if (genderCode == 0) {
+    if (genderCode == null || genderCode == 3){
+        return "";
+    } else if (genderCode == 0) {
         return "Nữ";
     } else if (genderCode == 1) {
         return "Nam";
-    } else {
-        return "Khác";
+    } else if (genderCode == 2) {
+        return "Không xác định";
     }
 }
 
