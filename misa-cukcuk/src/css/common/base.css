@@ -1,0 +1,17 @@
+@import url(../common/header.css);
+@import url(../common/navbar.css);
+@import url(../common/content.css);
+@import url(../common/main.css);
+@import url(../common/dropdown.css);
+@import url(../common/icon.css);
+@import url(../common/input.css);
+@import url(../common/pagination.css);
+@import url(../common/toolbar.css);
+@import url(../common/table.css);
+@import url(../common/button.css);
+
+@import url(../form/dialog.css);
+
+@import url(../popup/popup.css);
+
+@import url(../pages/employee.css);

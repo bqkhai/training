@@ -1,0 +1,88 @@
+.header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 48px;
+    border-bottom: 1px solid #bbbbbb;
+}
+
+    .header .department-info {
+        padding-left: 24px;
+        font-size: 16px;      
+        display: flex;
+        align-items: center;
+    }
+
+        .header .department-info .misa-branch-logo{
+            width: 30px;
+            height: 30px;
+            background-color:#cec0f0;
+            border-radius: 4px;
+            align-items: center;
+        }
+
+            .header .department-info .misa-branch-logo .text{
+                padding: 7px 5px;
+                color: #694cb0;
+                font-weight: bold;
+                font-size: 13px;
+            }
+
+        .header .department-info select {
+            height: 40px;
+            width: 195px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            font-family: "GoogleSans-Regular";
+        }
+
+            .header .department-info option{
+                cursor: pointer;
+            }
+
+
+    .header .account-info {
+        position: absolute;
+        right: 16px;
+        display: flex;
+        align-items: center;
+    }
+
+        .header .account-notification{
+            width: 16px;
+            height: 16px;
+            margin-right: 16px;
+            background-image: url(../../assets/content/icon/setting.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+            cursor: pointer;
+        }
+
+        .header .account-info .account-avatar {
+            width: 30px;
+            height: 30px;
+            margin: auto;
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            background-image: url('../../assets/content/icon/avatar-default.png');
+            background-size:contain;
+            cursor: pointer;
+        }
+
+        .header .account-info .account-name {
+            padding-left: 16px;
+            padding-right: 16px;
+            cursor: pointer;
+        }
+
+        .header .account-info .account-option {
+            height: 16px;
+            width: 20px;
+            margin: auto;
+            padding-top: 4px;
+            cursor: pointer;
+            background-image: url(../../assets/content/icon/option.png);
+        }

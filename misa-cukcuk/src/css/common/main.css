@@ -1,0 +1,49 @@
+head{
+    font-family: "GoogleSans-Regular";
+}
+
+body {
+    margin: 0;
+    font-family: "GoogleSans-Regular";
+    font-size: 13px;
+}
+
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.show {
+    visibility: visible;
+    transition: 0.3s;
+}
+
+.hide-dialog{
+    display: none !important;
+}
+
+@font-face {
+    font-family: 'GoogleSans-Regular';
+    src: url("../../assets/content/font/GoogleSans-Regular.otf");
+}
+
+@font-face {
+    font-family: 'GoogleSans-Bold';
+    src: url("../../assets/content/font/GoogleSans-Bold.otf");
+}
+
+@font-face {
+    font-family: 'GoogleSans-Italic';
+    src: url("../../assets/content/font/GoogleSans-Italic.otf");
+}
+
+@font-face {
+    font-family: 'GoogleSans-Light';
+    src: url("../../assets/content/font/GoogleSans-Light.otf");
+}
+
+@font-face {
+    font-family: 'GoogleSans-Thin';
+    src: url("../../assets/content/font/GoogleSans-Thin.otf");
+}
