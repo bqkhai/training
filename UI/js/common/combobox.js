@@ -2,9 +2,11 @@
  * Danh sách list
  */
 const list = [
-    {value: 0, text: "Nữ"},
-    {value: 1, text: "Nam"},
-    {value: 2, text: "Khác"},
+    {value: 0, text: "Tất cả phòng ban"},
+    {value: 1, text: "Phòng nhân sự"},
+    {value: 2, text: "Phòng sản xuất"},
+    {value: 3, text: "Phòng NCCN"},
+    {value: 4, text: "Phòng Marketing"},
 ];
 
 /**
@@ -28,7 +30,7 @@ const combobox = cbBox.find('.cb');
 let index = -1;
 
 /**
- * ham getValue, getText
+ * Hàm getValue, getText
  */
 let selectedItem = null;
 (function( $ ){
@@ -162,8 +164,7 @@ $("input").focusout(function() {
         $(this).css('border', 'solid 1px red'); 
     }
     else {
-          
         // If it is not blank.
-        $(this).css('border', 'solid 1px green');    
+        $(this).css('border', 'solid 1px #019160');    
     }    
 })

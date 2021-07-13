@@ -4,9 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/common/combobox.css">
     <title>Customer Manager</title>
 </head>
 <body>
     <h1 style="text-align: center;">Customer Manager</h1>
+    <div class="cb-autocomplete">
+        <label>Giới tính</label><br/>
+        <div class="field">
+            <input id="cbxGender" type="text" class="cb">
+            <span class="icon">
+            </span>
+        </div>
+        <ul class="datalist hide"></ul>
+    </div>
+    <script src="/lib/jquery-3.6.0.min.js"></script>
+    <script src="/js/common/combobox.js"></script>
 </body>
 </html>

@@ -303,6 +303,7 @@ class EmployeeJS extends baseJS {
     * 
     */
     loadData() {
+        clearInputForm();
         $('table tbody').empty();
         //1. Lấy dữ liệu từ API về
         $.ajax({
