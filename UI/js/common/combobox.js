@@ -1,10 +1,10 @@
 // List value, text 
 const list = [
-    {value: 0, text: "Tất cả phòng ban"},
-    {value: 1, text: "Phòng nhân sự"},
-    {value: 2, text: "Phòng sản xuất"},
-    {value: 3, text: "Phòng NCCN"},
-    {value: 4, text: "Phòng Marketing"},
+    { value: 0, text: "Tất cả phòng ban" },
+    { value: 1, text: "Phòng nhân sự" },
+    { value: 2, text: "Phòng sản xuất" },
+    { value: 3, text: "Phòng NCCN" },
+    { value: 4, text: "Phòng Marketing" },
 ];
 
 /**
@@ -31,14 +31,22 @@ let index = -1;
  * Hàm getValue, getText
  */
 let selectedItem = null;
-(function( $ ){
-    $.fn.getValue = function() {
-       return this.text();
+(function ($) {
+    $.fn.getValue = function () {
+        return this.text();
     };
-    $.fn.getText = function() {
+    $.fn.getText = function () {
         return this.val();
-     };  
- })( jQuery );
+    };
+})(jQuery);
+
+getValue = function () {
+    return $(this).text();
+}
+
+getText = function () {
+    return this.val();
+};
 
 $(function () {
 
@@ -153,7 +161,7 @@ function bindDataListToHtml(datalist, isInput) {
  */
 function selectItemCombobox(eleSelected) {
     let data = eleSelected.data();
-    if(!data){
+    if (!data) {
         return;
     }
     selectedItem = data;
@@ -163,17 +171,17 @@ function selectItemCombobox(eleSelected) {
     dataListEle.addClass('hide');
 }
 
-$("input#cbxDepartment").focus(function(){
+$("input#cbxDepartment").focus(function () {
     $(this).removeClass('border-red');
 })
 
-$("input#cbxDepartment").focusout(function() { 
+$("input#cbxDepartment").focusout(function () {
 
-    if($(this).val()==='') {
+    if ($(this).val() === '') {
         // $(this).css('border', 'none')
         $(this).addClass('border-red')
     }
     else {
         $(this).removeClass('border-red');
-    }    
+    }
 })
