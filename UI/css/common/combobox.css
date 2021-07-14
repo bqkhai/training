@@ -5,11 +5,9 @@
 .cb-autocomplete, .demo {
     position: relative;
     display: inline-block;
-    z-index: 1000;
 }
 
 .cb-autocomplete .field, .demo .de {
-    margin: 16px;
     position: relative;
     display: inline-block;
 }
@@ -19,7 +17,7 @@
     padding-left: 16px;
     padding-right: 16px;
     outline: none;
-    border: 1px solid #e3e3e3;
+    /* border: 1px solid #bbbbbb; */
     border-radius: 4px;
 }
 
@@ -33,12 +31,11 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: 16px 16px;
-    border-left: 1px solid #e5e5e5;
+    /* border-left: 1px solid #e5e5e5; */
     cursor: pointer;
 }
 
 .cb-autocomplete .icon, .demo .icon:hover {
-    background-color: #e5e5e5;
 }
 
 .cb-autocomplete .cb:focus, .demo .mo:focus, 
@@ -51,9 +48,12 @@
     margin: 0;
     padding: 0;
     border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    margin-top: 5px;
     width: 100%;
     background-color: #fff;
     position: absolute;
+    z-index: 15;
 }
 
 .cb-autocomplete .datalist.hide {
@@ -104,4 +104,8 @@
 .cb-autocomplete.error .cb, 
 .cb-autocomplete.error .icon {
     border-color: #f20;
+}
+
+span:hover{
+    background-color: #e5e5e5;
 }

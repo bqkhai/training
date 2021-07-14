@@ -1,6 +1,4 @@
-/**
- * Danh sách list
- */
+// List value, text 
 const list = [
     {value: 0, text: "Tất cả phòng ban"},
     {value: 1, text: "Phòng nhân sự"},
@@ -103,6 +101,11 @@ $(function () {
                 index++;
             }
 
+            // if (index == (count -1)){
+            //     dataListEle.find('li').eq(index).removeClass('hover');
+            //     dataListEle.find('li').eq(1).addClass('hover');
+            // }
+
         } else if (keyCode == 38) {
             // khi nhấn phím mũi tên lên.
             e.preventDefault();
@@ -159,12 +162,18 @@ function selectItemCombobox(eleSelected) {
     combobox.focus();
     dataListEle.addClass('hide');
 }
-$("input").focusout(function() { 
-    if($(this).val()=='') { 
-        $(this).css('border', 'solid 1px red'); 
+
+$("input#cbxDepartment").focus(function(){
+    $(this).removeClass('border-red');
+})
+
+$("input#cbxDepartment").focusout(function() { 
+
+    if($(this).val()==='') {
+        // $(this).css('border', 'none')
+        $(this).addClass('border-red')
     }
     else {
-        // If it is not blank.
-        $(this).css('border', 'solid 1px #019160');    
+        $(this).removeClass('border-red');
     }    
 })

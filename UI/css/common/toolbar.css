@@ -21,6 +21,7 @@
         .filter-bar .filter-left .filter-input {
             display: flex;
             margin-left: 10px;
+            align-items: center;
         }
 
     .filter-bar .filter-right{
