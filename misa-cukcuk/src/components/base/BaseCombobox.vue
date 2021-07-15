@@ -6,6 +6,6 @@
 
 <script>
 export default {
-  name: "BaseButton",
+  name: "BaseCombobox",
 };
 </script>
