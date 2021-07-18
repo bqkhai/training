@@ -5,7 +5,7 @@
     left: 221px;
     width: calc(100% - 221px);
     height: calc(100vh - 49px);
-    /* background-color: #e9ebee; */
+    background-color: #e9ebee;
 }
 
 /* page-title */
@@ -13,7 +13,7 @@
     display: flex;
     padding: 16px;
     padding-bottom: 8px;
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
 }
     .content .header-content .title{
         font-size: 20px;

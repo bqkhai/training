@@ -343,7 +343,7 @@ class EmployeeJS extends baseJS {
                         <td>${genderName}</td>
                         <td>${dateOfBirth}</td>
                         <td>${phone}</td>
-                        <td>${mail}</td>
+                        <td style="max-width: 250px;">${mail}</td>
                         <td>${postisionName}</td>
                         <td>${departmentName}</td>
                         <td style="text-align:right;">${salary}</td>

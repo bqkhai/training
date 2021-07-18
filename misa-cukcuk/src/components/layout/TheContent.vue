@@ -2,16 +2,13 @@
   <div class="content">
     <div class="header-content">
       <div class="title">Danh sách nhân viên</div>
-      <div class="add-btn-header" id="btnAdd">
-        <button
-          class="add-btn m-btn-default"
-          id="open-form"
-          v-on:click="btnAddOnClick"
-        >
-          <div class="btn-icon-add icon-add"></div>
-          <div class="btn-add-text">Thêm nhân viên</div>
-        </button>
-      </div>
+      <BaseButton
+        class="add-btn m-btn-default"
+        id="btnAdd"
+        buttonName="Thêm nhân viên"
+        icon="add.png"
+        @click="showModal"
+      />
     </div>
     <div class="filter-bar">
       <div class="filter-left">
@@ -171,54 +168,63 @@
         </div>
       </div>
       <div class="filter-right">
-        <button id="btnDelete" class="m-btn-delete m-second-button"></button>
-        <button id="my-btn" class="m-btn-refresh m-second-button"></button>
+        <BaseButton
+          class="m-second-button m-btn-delete"
+          id="btn-delete"
+          icon="delete-icon.png"
+        />
+        <BaseButton
+          class="m-second-button m-btn-refresh"
+          id="my-btn"
+          icon="refresh.png"
+        />
       </div>
     </div>
-
-    <div class="footer">
-      <div>Hiển thị 1-10/1000 khách hàng</div>
-      <div class="pagination">
-        <div class="pagination-item first-page"></div>
-        <div class="pagination-item prev-page"></div>
-        <div class="pagination-item active">1</div>
-        <div class="pagination-item">2</div>
-        <div class="pagination-item">3</div>
-        <div class="pagination-item">4</div>
-        <div class="pagination-item next-page"></div>
-        <div class="pagination-item last-page"></div>
-      </div>
-      <div>10 khách hàng/trang</div>
-    </div>
+    <TheModal v-show="isModalVisible" @close="closeModal" />
     <BaseTable />
-    <DialogForm />
+    <BasePagination />
   </div>
 </template>
 
 <style lang="css" scoped>
-@import url(../../css/common/base.css);
+
 </style>
 
 <script>
 import BaseTable from "../base/BaseTable.vue";
-import DialogForm from "./TheModal.vue";
+import TheModal from "./TheModal.vue";
+import BasePagination from "../base/BasePagination.vue";
+import BaseButton from "../base/BaseButton.vue";
+// import BaseInput from "../base/BaseInput.vue";
 
 export default {
   name: "TheContent",
 
   components: {
     BaseTable,
-    DialogForm,
+    BasePagination,
+    TheModal,
+    BaseButton,
+    // BaseInput,
   },
 
   created() {},
 
   props: {},
 
-  data() {},
+  data() {
+    return {
+      isModalVisible: false,
+    };
+  },
 
   methods: {
-    btnAddOnClick() {},
+    showModal() {
+      this.isModalVisible = true;
+    },
+    closeModal() {
+      this.isModalVisible = false;
+    },
   },
 };
 </script>

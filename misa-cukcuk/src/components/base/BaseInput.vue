@@ -1,14 +1,15 @@
 <template>
-  <div>
-    <label>
-      {{ label }}
-      <input
-        :type="type"
-        :placeholder="placeholder"
-        @input="$emit('input', $event.target.value)"
-      />
-    </label>
-  </div>
+  <input
+    :placeholder="placeholder"
+    type="type"
+    required
+    :class="inputClass"
+    id="id"
+    v-bind="$attrs"
+    :tabindex="tabindex"
+    :value="value"
+    v-on:input="inputVal($event.target.value)"
+  >
 </template>
 
 <style scoped>
@@ -17,11 +18,25 @@
 <script>
 export default {
   name: "BaseInput",
-
-  props:{
+  props: {
     label: String,
-    type: String,
-    placeholder: String
-  }
+    placeholder: String,
+    tabindex: String,
+    blur: String,
+    inputClass: String,
+    id: String,
+    required: {
+      type: Boolean,
+      default: false,
+    },
+    value: {
+      type: String,
+    },
+  },
+  methods: {
+    inputVal: function (value) {
+      this.$emit("input", value);
+    },
+  },
 };
 </script>

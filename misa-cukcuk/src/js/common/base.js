@@ -85,3 +85,5 @@ class baseJS {
         })
     }
 }
+
+export default new BaseJS();

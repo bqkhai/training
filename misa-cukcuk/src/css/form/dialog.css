@@ -42,11 +42,11 @@
   right: 8px;
 }
 
-.dialog-header .dialog-header-close button:hover {
+.dialog-header .dialog-header-close:hover {
   background-color: #ccc;
 }
 
-.dialog-header .dialog-header-close button {
+.dialog-header .dialog-header-close {
   width: 30px;
   height: 30px;
   border-radius: 4px;
@@ -54,7 +54,7 @@
   border: none;
   outline: none;
   cursor: pointer;
-  background-image: url("/content/icon/x.svg");
+  background-image: url("../../assets/content/icon/x.svg");
   background-repeat: no-repeat;
   background-size: 20px;
   background-position: center;
@@ -79,7 +79,7 @@
 .img-field {
   width: 160px;
   height: 160px;
-  background-image: url("/content/img/default-avatar.jpg");
+  background-image: url("../../assets/content/img/default-avatar.jpg");
   background-repeat: no-repeat;
   background-size: 160px;
   background-position: center;
@@ -117,14 +117,9 @@
 
 .dialog-footer .btn-cancel-box {
   position: absolute;
-  right: 155px;
+  right: 180px;
   height: 40px;
   padding: 0px 24px;
-}
-
-.dialog-footer .btn-cancel-box .btn-cancel {
-  height: 40px;
-  padding: 0px 36px;
   border: none;
   outline: none;
   background-color: #e9ebee;
@@ -132,20 +127,20 @@
   cursor: pointer;
 }
 
-.dialog-footer .btn-cancel-box .btn-cancel:hover {
+.dialog-footer .btn-cancel-box:hover {
   background-color: #bbbbbb;
 }
 
 .dialog-footer .btn-save-box {
   position: absolute;
-  right: 12px;
+  right: 24px;
   height: 40px;
   padding: 0px 24px;
-  width: 139px;
+  width: 144px;
 }
 
 .dialog-footer .btn-save-box .icon-save {
-  background-image: url(/content/icon/file-plus.svg);
+  background-image: url('../../assets/content/icon/file-plus.svg');
   height: 20px;
   width: 20px;
   background-size: contain;
