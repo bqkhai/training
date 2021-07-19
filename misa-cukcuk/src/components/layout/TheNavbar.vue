@@ -7,30 +7,31 @@
       </div>
     </div>
     <div class="navbar-content">
-      <a class="nav-item" href="#">
+      <!-- <router-link to="/">home</router-link> -->
+      <router-link to="/home" class="nav-item" href="#">
         <div class="nav-item-icon nav-item-icon-dashboard"></div>
         <div class="nav-item-text">Tổng quan</div>
-      </a>
-      <a class="nav-item" href="#">
+      </router-link>
+      <router-link to="/home" class="nav-item" href="#">
         <div class="nav-item-icon nav-item-icon-report"></div>
         <div class="nav-item-text">Báo cáo</div>
-      </a>
-      <a class="nav-item" href="#">
+      </router-link>
+      <router-link to="/home" class="nav-item" href="#">
         <div class="nav-item-icon nav-item-icon-dashboard"></div>
         <div class="nav-item-text">Mua hàng</div>
-      </a>
-      <a class="nav-item active" href="employee.html">
+      </router-link>
+      <router-link to="/employee" class="nav-item">
         <div class="nav-item-icon nav-item-icon-employee"></div>
         <div class="nav-item-text">Danh mục nhân viên</div>
-      </a>
-      <a class="nav-item" href="#">
+      </router-link>
+      <router-link to="/customer" class="nav-item" href="#">
         <div class="nav-item-icon nav-item-icon-employee"></div>
         <div class="nav-item-text">Danh mục nhân viên</div>
-      </a>
-      <a class="nav-item" href="#">
+      </router-link>
+      <router-link to="/about" class="nav-item" href="#">
         <div class="nav-item-icon nav-item-icon-setting"></div>
         <div class="nav-item-text">Thiết lập hệ thống</div>
-      </a>
+      </router-link>
     </div>
   </div>
 </template>

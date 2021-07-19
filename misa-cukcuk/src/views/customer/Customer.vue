@@ -1,5 +1,5 @@
 <template>
-  <BaseTable />
+<TheContent />
 </template>
 
 <style scoped>
@@ -7,11 +7,11 @@
 </style>
 
 <script>
-import BaseTable from "../../../base/BaseTable.vue";
+import TheContent from "../../components/layout/TheContent.vue";
 export default {
-  name: "EmployeeList",
+  name: "Customer",
   components: {
-    BaseTable,
+    TheContent,
   },
 };
 </script>
