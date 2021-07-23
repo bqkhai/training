@@ -8,15 +8,15 @@
     </div>
     <div class="navbar-content">
       <!-- <router-link to="/">home</router-link> -->
-      <router-link to="/home" class="nav-item" href="#">
+      <router-link to="/dashboard" class="nav-item" href="#">
         <div class="nav-item-icon nav-item-icon-dashboard"></div>
         <div class="nav-item-text">Tổng quan</div>
       </router-link>
-      <router-link to="/home" class="nav-item" href="#">
+      <router-link to="/report" class="nav-item" href="#">
         <div class="nav-item-icon nav-item-icon-report"></div>
         <div class="nav-item-text">Báo cáo</div>
       </router-link>
-      <router-link to="/home" class="nav-item" href="#">
+      <router-link to="/buy" class="nav-item" href="#">
         <div class="nav-item-icon nav-item-icon-dashboard"></div>
         <div class="nav-item-text">Mua hàng</div>
       </router-link>
@@ -26,9 +26,9 @@
       </router-link>
       <router-link to="/customer" class="nav-item" href="#">
         <div class="nav-item-icon nav-item-icon-employee"></div>
-        <div class="nav-item-text">Danh mục nhân viên</div>
+        <div class="nav-item-text">Danh mục khách hàng</div>
       </router-link>
-      <router-link to="/about" class="nav-item" href="#">
+      <router-link to="/setting" class="nav-item" href="#">
         <div class="nav-item-icon nav-item-icon-setting"></div>
         <div class="nav-item-text">Thiết lập hệ thống</div>
       </router-link>

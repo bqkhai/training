@@ -3,9 +3,6 @@
     <div class="dialog-content">
       <div class="dialog-header">
         <div class="dialog-header-title">Thông tin nhân viên</div>
-        <!-- <div class="dialog-header-close" id="close-dialog">
-          <button @click="close"></button>
-        </div> -->
         <BaseButton
           class="dialog-header-close"
           id="close-dialog"
@@ -37,6 +34,7 @@
                     type="text"
                     required
                     tabindex="1"
+                    ref="focus"
                   />
                 </div>
                 <div class="form-item">
@@ -448,7 +446,6 @@
 </template>
 
 <style lang="css" scoped>
-
 </style>
 
 <script>
@@ -462,9 +459,17 @@ export default {
   },
   props: {},
   methods: {
+    // đóng form dialog
     close() {
       this.$emit("close");
     },
+    //focus vào ô đầu tiên
+    focusInput() {
+      this.$refs.focus.$el.focus();
+    },
+  },
+  data() {
+    return {};
   },
 };
 </script>

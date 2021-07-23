@@ -19,17 +19,20 @@
           v-for="employee in Employees"
           :key="employee.EmployeeId"
           @dblclick="rowDblClick(employee.EmployeeId)"
+          @click="rowClick(employee.EmployeeId)"
         >
           <td><input type="checkbox" /></td>
           <td>{{ employee.EmployeeCode }}</td>
           <td>{{ employee.FullName }}</td>
           <td>{{ employee.Gender | formatGender }}</td>
-          <td style="text-align: center;">{{ employee.DateOfBirth | formatDate }}</td>
+          <td style="text-align: center">
+            {{ employee.DateOfBirth | formatDate }}
+          </td>
           <td>{{ employee.PhoneNumber }}</td>
-          <td style="max-width: 250px;">{{ employee.Email }}</td>
-          <td style="max-width: 250px;">{{ employee.PositionName }}</td>
-          <td style="max-width: 250px;">{{ employee.DepartmentName }}</td>
-          <td style="text-align: right">
+          <td style="max-width: 250px">{{ employee.Email }}</td>
+          <td style="max-width: 250px">{{ employee.PositionName }}</td>
+          <td style="max-width: 250px">{{ employee.DepartmentName }}</td>
+          <td style="max-width: 100px; text-align: right">
             {{ employee.Salary | formatSalary }}
           </td>
           <td>{{ employee.WorkStatus | formatWorkStatus }}</td>
@@ -72,9 +75,13 @@ export default {
         .get("http://cukcuk.manhnv.net/v1/Employees/" + id)
         .then((res) => console.log(res.data))
         .catch((err) => {
-          console.log(err)
-        })
+          console.log(err);
+        });
     },
+
+    rowClick(){
+      this.$emit(this.rowClick());
+    }
   },
 
   filters: {

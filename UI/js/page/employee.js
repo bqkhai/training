@@ -247,7 +247,7 @@ class EmployeeJS extends baseJS {
                             value = 1;
                         }
                     // case 'Salary':
-                    //     value = $('input[Salary]').replace('.', '');
+                    //     value = $('input[Salary]').replaceAll('.', '');
                     //     break;
                     default:
                         break;
@@ -263,6 +263,7 @@ class EmployeeJS extends baseJS {
                     data: JSON.stringify(employee),
                     contentType: 'application/json-patch+json'
                 }).done(function (res) {
+                    console.log(res)
                     // thông báo thành công
                     alert('Thêm nhân viên thành công!');
                     // ẩn fom chi tiết

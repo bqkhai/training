@@ -4,7 +4,7 @@
     <div class="popup-box">
       <div class="popup-header">
         <div class="popup-title">Cảnh báo</div>
-        <div class="popup-close"></div>
+        <div class="popup-close" @click="onClosePopup"></div>
       </div>
       <div class="popup-body">
         <div class="popup-left-icon"></div>
@@ -14,10 +14,16 @@
         </div>
       </div>
       <div class="popup-footer">
-        <button id="btn-cancel-popup" class="m-second-button btn-cancel-popup">
+        <button
+          id="btn-cancel-popup"
+          class="m-second-button btn-cancel-popup"
+          @click="onConfirmPopup"
+        >
           Tiếp tục nhập
         </button>
-        <button id="btn-close" class="btn-close">Đóng</button>
+        <button id="btn-close" class="btn-close" @click="onClosePopup">
+          Đóng
+        </button>
       </div>
     </div>
   </div>
@@ -25,6 +31,15 @@
 
 <script>
 export default {
-  name: 'Popup'
+  name: "Popup",
+
+  methods: {
+    onClosePopup() {
+      this.$emit("close-popup");
+    },
+    onConfirmPopup() {
+      this.$emit("confirm-popup");
+    },
+  },
 };
 </script>

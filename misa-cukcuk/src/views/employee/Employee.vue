@@ -29,7 +29,7 @@
                 <i class="fa fa-chevron-down"></i>
               </div>
             </button>
-            <input class="select-box-text" value="Tất cả phòng ban" />
+            <input class="select-box-text" value="" />
             <div class="dropdown-box dropdown-box-departement hidden">
               <div class="dropdown-item dropdown-item-first">
                 <div class="dropdown-item__icon"></div>
@@ -100,7 +100,7 @@
                 <i class="fa fa-chevron-down"></i>
               </div>
             </button>
-            <input class="select-box-text" value="Tất cả vị trí" />
+            <input class="select-box-text" value="" />
             <div class="dropdown-box dropdown-box-position hidden">
               <div class="dropdown-item dropdown-item-first">
                 <div class="dropdown-item__icon"></div>
@@ -172,58 +172,226 @@
           class="m-second-button m-btn-delete"
           id="btn-delete"
           icon="delete-icon.png"
+          @click="deleteEmployee()"
         />
         <BaseButton
           class="m-second-button m-btn-refresh"
           id="my-btn"
           icon="refresh.png"
+          @click="refreshData()"
         />
       </div>
     </div>
-    <TheModal v-show="isModalVisible" @close="closeModal" />
-    <BaseTable />
+    <div class="grid-header">
+      <table id="tbListData" border="0" width="100%" cellspacing="0">
+        <thead>
+          <th></th>
+          <th class="colspan" FieldName="EmployeeCode">Mã nhân viên</th>
+          <th class="colspan" FieldName="FullName">Họ và tên</th>
+          <th class="colspan" FieldName="Gender">Giới tính</th>
+          <th class="colspan" FieldName="DateOfBirth">Ngày sinh</th>
+          <th class="colspan" FieldName="PhoneNumber">Điện thoại</th>
+          <th class="colspan" FieldName="Email">Email</th>
+          <th class="colspan" FieldName="PositionName">Chức vụ</th>
+          <th class="colspan" FieldName="DepartmentName">Phòng ban</th>
+          <th class="colspan" FieldName="Salary">Mức lương cơ bản</th>
+          <th class="colspan" FieldName="WorkStatus">Tình trạng công việc</th>
+        </thead>
+        <tbody class="grid-list">
+          <!-- @click="rowClick(employee.EmployeeId)" -->
+          <tr
+            v-for="employee in Employees"
+            :key="employee.EmployeeId"
+            @dblclick="rowDblClick(employee)"
+            @click="
+              checked.includes(employee.EmployeeId)
+                ? checked.pop(employee.EmployeeId)
+                : checked.push(employee.EmployeeId)
+            "
+          >
+            <td>
+              <input
+                type="checkbox"
+                v-model="checked"
+                :value="employee.EmployeeId"
+              />
+            </td>
+            <td>{{ employee.EmployeeCode }}</td>
+            <td>{{ employee.FullName }}</td>
+            <td>{{ employee.GenderName }}</td>
+            <td style="text-align: center">
+              {{ employee.DateOfBirth | formatDate}}
+            </td>
+            <td>{{ employee.PhoneNumber }}</td>
+            <td style="max-width: 250px">{{ employee.Email }}</td>
+            <td style="max-width: 250px">{{ employee.PositionName }}</td>
+            <td style="max-width: 250px">{{ employee.DepartmentName }}</td>
+            <td style="max-width: 100px; text-align: right">
+              {{ employee.Salary | formatSalary }}
+            </td>
+            <td>{{ employee.WorkStatus | formatWorkStatus }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <EmployeeDetail
+      v-show="isModalVisible"
+      @close="closeModal"
+      :employee="employeeData"
+      :formMode="statusForm"
+    />
     <BasePagination />
   </div>
 </template>
 
 <style lang="css" scoped>
-
 </style>
 
 <script>
-import BaseTable from "../../components/base/BaseTable.vue";
-import TheModal from "../../components/layout/TheModal.vue";
+import EmployeeDetail from "./EmployeeDetail.vue";
 import BasePagination from "../../components/base/BasePagination.vue";
 import BaseButton from "../../components/base/BaseButton.vue";
-// import BaseInput from "../base/BaseInput.vue";
+
+import axios from "axios";
+import moment from "moment";
+import numeral from "numeral";
 
 export default {
-  name: "TheContent",
+  name: "Employee",
 
   components: {
-    BaseTable,
     BasePagination,
-    TheModal,
+    EmployeeDetail,
     BaseButton,
-    // BaseInput,
   },
 
-  created() {},
+  created() {
+    this.getData();
+    this.refreshData();
+  },
 
   props: {},
 
   data() {
     return {
+      Employees: [],
+      checked: [],
+      employeeData:{},
+      data: {},
       isModalVisible: false,
+      statusForm: "",
     };
   },
 
   methods: {
+    //hiện form dialog
     showModal() {
       this.isModalVisible = true;
+      this.statusForm = 'ADD';
+      console.log(this.statusForm)
     },
+
+    //ẩn form dialog
     closeModal() {
       this.isModalVisible = false;
+    },
+
+    /**
+     * Load data cho bảng
+     * Author: bqkhai (19/7/2021)
+     */
+    async getData() {
+      const res = await axios.get("http://cukcuk.manhnv.net/v1/Employees/");
+      this.Employees = res.data;
+      console.log(res);
+    },
+
+    /**
+     * Hàm refresh data bảng
+     * Author: bqkhai (20/7/2021)
+     */
+    refreshData() {
+      this.Employees = "";
+      for (let i in this.checked){
+        this.checked.pop(this.checked[i])
+      }
+      this.getData();
+    },
+
+    /**
+     * Hàm sự kiện dblclick vào hàng trong bảng
+     * Author: bqkhai (19/7/2021)
+     */
+    rowDblClick(emp) {
+      this.isModalVisible = true;
+      this.statusForm = 'EDIT';
+      this.employeeData = emp;
+      console.log(emp.DateOfBirth);
+      console.log(this.statusForm)
+    },
+
+    /**
+     * Hàm xóa nhân viên
+     * Author: bqkhai (19/7/2021)
+     */
+    deleteEmployee() {
+      if (confirm("Bạn có muốn xóa không")) {
+        for (let i in this.checked) {
+          axios
+            .delete("http://cukcuk.manhnv.net/v1/Employees/" + this.checked[i])
+            .then(res => {
+              console.log(res);
+              this.refreshData();
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        }
+      }
+      return;
+    },
+  },
+
+  filters: {
+    /**
+     * Định dạng ngày tháng
+     * Author: bqkhai (16/7/2021)
+     */
+    formatDate: function (date) {
+      return moment(String(date)).format("DD/MM/YYYY");
+    },
+
+    /**
+     * Định dạng giới tính
+     * Author: bqkhai (16/7/2021)
+     */
+    formatGender: function (genderCode) {
+      if (genderCode == null || genderCode == 3) return "";
+      else if (genderCode == 0) return "Nữ";
+      else if (genderCode == 1) return "Nam";
+      else if (genderCode == 2) return "Khác";
+    },
+
+    /**
+     * Định dạng tiền tệ
+     * Author: bqkhai (16/7/2021)
+     */
+    formatSalary: function (salary) {
+      if (Number.isInteger(salary)) {
+        return numeral(salary).format(0.0).replaceAll(",", ".");
+      } else {
+        return "Không xác định";
+      }
+    },
+
+    /**
+     * Định dạng trạng thái công việc
+     * Author: bqkhai (16/7/2021)
+     */
+    formatWorkStatus: function (status) {
+      if (status == 1) return "Đang làm việc";
+      else if (status == 2) return "Đã nghỉ việc";
+      else return "Không xác định";
     },
   },
 };

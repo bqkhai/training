@@ -1,41 +1,53 @@
 <template>
+  <!-- :value="value" -->
   <input
-    :placeholder="placeholder"
     type="type"
     required
     :class="inputClass"
     id="id"
-    v-bind="$attrs"
     :tabindex="tabindex"
-    :value="value"
-    v-on:input="inputVal($event.target.value)"
-  >
+    @blur="onBlur($event.target)"
+    v-model="inputValue"
+  />
 </template>
 
 <style scoped>
+.border-red {
+  border: 1px solid red;
+}
 </style>
 
 <script>
 export default {
   name: "BaseInput",
   props: {
-    label: String,
-    placeholder: String,
     tabindex: String,
-    blur: String,
     inputClass: String,
     id: String,
-    required: {
-      type: Boolean,
-      default: false,
-    },
+    required: Boolean,
     value: {
-      type: String,
+      default: "",
+    },
+  },
+  computed: {
+    inputValue: {
+      get() {
+        return this.value;
+      },
+      set(value) {
+        this.$emit("input", value);
+      },
     },
   },
   methods: {
-    inputVal: function (value) {
-      this.$emit("input", value);
+    onBlur(e) {
+      if (this.required == true) {
+        if (e.value == "") {
+          this.invalid = true;
+        } else {
+          this.invalid = false;
+        }
+      }
     },
   },
 };

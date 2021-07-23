@@ -1,5 +1,5 @@
 <template>
-<TheContent />
+<Employee />
 </template>
 
 <style scoped>
@@ -7,11 +7,11 @@
 </style>
 
 <script>
-import TheContent from "../../components/layout/TheContent.vue";
+import Employee from "../employee/Employee.vue";
 export default {
   name: "Customer",
   components: {
-    TheContent,
+    Employee,
   },
 };
 </script>

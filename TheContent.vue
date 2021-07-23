@@ -172,6 +172,7 @@
           class="m-second-button m-btn-delete"
           id="btn-delete"
           icon="delete-icon.png"
+          @rowClick="deleteEmployee()"
         />
         <BaseButton
           class="m-second-button m-btn-refresh"
@@ -187,7 +188,6 @@
 </template>
 
 <style lang="css" scoped>
-
 </style>
 
 <script>
@@ -195,7 +195,6 @@ import BaseTable from "../base/BaseTable.vue";
 import TheModal from "./TheModal.vue";
 import BasePagination from "../base/BasePagination.vue";
 import BaseButton from "../base/BaseButton.vue";
-// import BaseInput from "../base/BaseInput.vue";
 
 export default {
   name: "TheContent",
@@ -225,6 +224,15 @@ export default {
     closeModal() {
       this.isModalVisible = false;
     },
+
+    // deleteEmployee() {
+    //   axios
+    //     .delete("http://cukcuk.manhnv.net/v1/Employees/" + id)
+    //     .then(alert("Xóa thành công"))
+    //     .catch((err) => {
+    //       console.log(err);
+    //     });
+    // },
   },
 };
 </script>

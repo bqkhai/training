@@ -3,8 +3,8 @@ import App from './App.vue'
 import VueRouter from 'vue-router'
 import router from './router'
 
-
-
+const eventBus = new Vue();
+Vue.use(eventBus);
 Vue.use(VueRouter)
 
 
